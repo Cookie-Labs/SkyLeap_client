@@ -12,6 +12,7 @@ module.exports = override(
     '@pages': path.resolve(__dirname, 'src/components', 'pages'),
     '@atoms': path.resolve(__dirname, 'src/components', 'atoms'),
     '@articles': path.resolve(__dirname, 'src/components', 'articles'),
+    '@constants': path.resolve(__dirname, 'src', 'constants'),
   }),
   ...addBabelPlugins(['babel-plugin-styled-components']),
 );

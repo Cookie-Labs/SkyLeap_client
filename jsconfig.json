@@ -10,7 +10,8 @@
       "@mock/*": ["./src/mock/*"],
       "@pages/*": ["./src/components/pages/*"],
       "@atoms/*": ["./src/components/atoms/*"],
-      "@articles/*": ["./src/components/articles/*"]
+      "@articles/*": ["./src/components/articles/*"],
+      "@constants/*": ["./src/constants/*"]
     }
   },
   "exclude": ["node_modules", "build"]

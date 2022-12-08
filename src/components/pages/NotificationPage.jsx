@@ -7,12 +7,12 @@ const TopWrapper = styled('div')`
   font-weight: 300;
 `;
 
-const MainPage = () => {
+const NotificationPage = () => {
   return (
     <Layout>
-      <TopWrapper>Main</TopWrapper>
+      <TopWrapper>Notification</TopWrapper>
     </Layout>
   );
 };
 
-export default MainPage;
+export default NotificationPage;

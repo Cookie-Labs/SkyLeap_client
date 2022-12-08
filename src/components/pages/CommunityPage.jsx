@@ -7,12 +7,12 @@ const TopWrapper = styled('div')`
   font-weight: 300;
 `;
 
-const MainPage = () => {
+const CommunityPage = () => {
   return (
     <Layout>
-      <TopWrapper>Main</TopWrapper>
+      <TopWrapper>Community</TopWrapper>
     </Layout>
   );
 };
 
-export default MainPage;
+export default CommunityPage;

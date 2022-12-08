@@ -7,12 +7,12 @@ const TopWrapper = styled('div')`
   font-weight: 300;
 `;
 
-const MainPage = () => {
+const CartPage = () => {
   return (
     <Layout>
-      <TopWrapper>Main</TopWrapper>
+      <TopWrapper>Cart</TopWrapper>
     </Layout>
   );
 };
 
-export default MainPage;
+export default CartPage;
