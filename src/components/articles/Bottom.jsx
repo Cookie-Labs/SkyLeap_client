@@ -29,12 +29,14 @@ const ButtonWrapper = styled('div')`
   flex-direction: column;
   gap: 3px;
 `;
+
 const EmojiButton = styled('img')`
   width: 30px;
 `;
 
 const TextWrapper = styled('span')`
   color: ${colors.primary35};
+  font-size: 10px;
 `;
 
 const Bottom = () => {

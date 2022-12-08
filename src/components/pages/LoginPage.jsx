@@ -17,16 +17,18 @@ const TextWrapper = styled('span')`
 `;
 
 const ImageWrpper = styled('img')`
-  width: 300px;
-  margin-top: 30px;
+  width: 200px;
+  margin-top: 20px;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
 `;
 
 const LinkWrapper = styled('div')`
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 20px;
 `;
 
 const LoginPage = () => {
