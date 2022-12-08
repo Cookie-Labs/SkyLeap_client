@@ -8,16 +8,16 @@ export const textBlack = '#0F0F0F';
 export const textTertiary = '#bac0a3';
 export const natural95 = '#F8F77C';
 
+export const primary70 = '#D9D4CF';
+export const primary35 = '#7C7877';
+export const primary20 = '#ABD0CE';
+export const primary15 = '#F0E5DE';
 
-export const primary80 = '#E141B9';
-export const primary40 = '#EF99D9';
-export const primary20 = '#F9D9F1';
-
-
+export const bgPrimary = '#F0EFEB';
+export const bgSecondary = '#848270';
 export const bgBlack = '#0F0F0F';
 export const bgWhite = '#FFFFFF';
 export const bgRed = '#f74b46';
-export const bgSecondary = '#27272a';
 // export const bgBlack = 'black';
 // export const bgBannerButton = 'rgba(0, 0, 0, 0.4)';
 

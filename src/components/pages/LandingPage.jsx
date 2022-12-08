@@ -2,6 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import * as colors from '@styles/colors';
+import Layout from '@articles/Layout';
+
+const TopWrapper = styled('div')`
+  font-size: 20px;
+  font-weight: 300;
+`;
 
 const ButtonWrapper = styled('div')`
   grid-row: 6;
@@ -9,25 +15,15 @@ const ButtonWrapper = styled('div')`
   justify-content: center;
 `;
 
-const TopWrapper = styled('div')`
-  font-size: 50px;
-  font-weight: 300;
-`;
-const BottomWrapper = styled('div')`
-  font-family: 'Shrikhand', cursive;
-  font-style: italic;
-  font-size: 50px;
-  font-weight: 300;
-`;
-
 const NextButton = styled(Link)`
-  height: 6rem;
-  padding: 0 5rem;
+  margin-top: 20px;
+  height: 40px;
+  padding: 0 20px;
   font-weight: 400;
-  font-size: 2.5rem;
+  font-size: 20px;
   text-align: center;
-  color: ${colors.primary40};
-  background-color: ${colors.primary80};
+  color: ${colors.primary35};
+  background-color: ${colors.primary70};
   letter-spacing: 2.44906px;
   border-radius: 50px;
   opacity: 0.85;
@@ -43,13 +39,15 @@ const NextButton = styled(Link)`
 
 const LandingPage = () => {
   return (
-    <>
+    <Layout>
       <TopWrapper>랜딩페이지</TopWrapper>
+      <TopWrapper>서비스 소개</TopWrapper>
+      <TopWrapper>핵심 기능 3가지</TopWrapper>
+      <TopWrapper>로드맵 및 기업비전</TopWrapper>
       <ButtonWrapper>
-        <NextButton to="/main">시작하기</NextButton>
+        <NextButton to="/login">시작하기</NextButton>
       </ButtonWrapper>
-      <BottomWrapper>Landing Page</BottomWrapper>
-    </>
+    </Layout>
   );
 };
 

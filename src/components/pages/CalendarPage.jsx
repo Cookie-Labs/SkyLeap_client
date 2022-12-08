@@ -7,12 +7,12 @@ const TopWrapper = styled('div')`
   font-weight: 300;
 `;
 
-const MainPage = () => {
+const CalendarPage = () => {
   return (
     <Layout>
-      <TopWrapper>Main</TopWrapper>
+      <TopWrapper>Calendar</TopWrapper>
     </Layout>
   );
 };
 
-export default MainPage;
+export default CalendarPage;
