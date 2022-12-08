@@ -3,7 +3,14 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@assets/*": ["./src/assets/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@mock/*": ["./src/mock/*"],
+      "@pages/*": ["./src/components/pages/*"],
+      "@atoms/*": ["./src/components/atoms/*"],
+      "@articles/*": ["./src/components/articles/*"]
     }
   },
   "exclude": ["node_modules", "build"]
