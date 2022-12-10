@@ -5,6 +5,7 @@ import Anchor from '@atoms/Anchor';
 import { Row, Column } from '@atoms/wrapper.style';
 import { lg, sm } from '@styles/GlobalStyle';
 import service1Img from '@assets/image/service1.png';
+import service2Img from '@assets/image/service2.png';
 
 const Container = styled('div')`
   display: flex;
@@ -143,7 +144,7 @@ const ServiceArea = forwardRef((props, ref) => {
           </ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>
-          <ServiceImg src={service1Img} />
+          <ServiceImg src={service2Img} />
         </ServiceImgWrapper>
       </ServiceSection>
       <ServiceSection>
