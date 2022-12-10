@@ -116,7 +116,7 @@ const Footer = () => {
         <FooterText>Hunter's Pot</FooterText>
       </FooterTextContainer>
       <FooterTextContainer>
-        <FooterText>📧Email: Hunters-Pot@gmail.com</FooterText>
+        <FooterText>📧Email: sheitcsteam@gmail.com </FooterText>
         <FooterText>📱Phone: 010-9947-3665</FooterText>
       </FooterTextContainer>
       <FooterTextContainer>

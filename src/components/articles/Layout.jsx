@@ -11,9 +11,8 @@ import {
 
 const ContentWrapper = styled('div')`
   width: ${APP_MAX_W};
-  height: 85vh; // TODO: 나중에 auto로
-  padding: 0 20px;
-  padding-top: calc(${APP_HEADER_H} + 1rem);
+  height: 100%; // TODO: 나중에 auto로
+  padding-top: ${APP_HEADER_H};
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding-bottom: 1rem;
 `;
