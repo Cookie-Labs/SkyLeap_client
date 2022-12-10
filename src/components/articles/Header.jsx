@@ -4,9 +4,9 @@ import * as colors from '@styles/colors';
 import { APP_MAX_W, APP_HEADER_H } from '@constants/styleConst';
 import { Link } from 'react-router-dom';
 import SheitLogo from '@assets/icon/Sheit_logo.png';
-import BellImage from '@assets/image/bell_on.svg';
-import CartImage from '@assets/image/shopping_cart.svg';
-import SettingImage from '@assets/image/settings.svg';
+import BellImage from '@assets/icon_button/bell_on.svg';
+import CartImage from '@assets/icon_button/shopping_cart.svg';
+import SettingImage from '@assets/icon_button/settings.svg';
 
 const Container = styled('div')`
   position: fixed;
