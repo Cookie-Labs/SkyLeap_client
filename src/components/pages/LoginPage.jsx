@@ -7,6 +7,12 @@ import NLoginImage from '@assets/image/Naver_login.png';
 import KLoginImage from '@assets/image/Kakao_login.png';
 import { Link } from 'react-router-dom';
 
+const Container = styled(Column)`
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+`;
+
 const LogoWrapper = styled('img')`
   height: 300px;
 `;
@@ -34,7 +40,7 @@ const LinkWrapper = styled('div')`
 const LoginPage = () => {
   return (
     <Layout>
-      <Column justifyContent="center" alignItems="center">
+      <Container>
         <Link to={'/main'}>
           <LogoWrapper src={SheitLogo} />
         </Link>
@@ -42,7 +48,7 @@ const LoginPage = () => {
         <ImageWrpper src={NLoginImage} />
         <ImageWrpper src={KLoginImage} />
         <LinkWrapper>다른 계정으로 로그인하기</LinkWrapper>
-      </Column>
+      </Container>
     </Layout>
   );
 };
