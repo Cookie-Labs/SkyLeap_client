@@ -13,8 +13,8 @@ export const primary35 = '#7C7877';
 export const primary20 = '#ABD0CE';
 export const primary15 = '#F0E5DE';
 
-export const bgPrimary = '#F0EFEB';
-export const bgSecondary = '#848270';
+export const bgPrimary = '#D12764';
+export const bgSecondary = '#FF9292';
 export const bgBlack = '#0F0F0F';
 export const bgWhite = '#FFFFFF';
 export const bgRed = '#f74b46';

@@ -2,17 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import * as colors from '@styles/colors';
-import { APP_MAX_W, FOOTER_H, APP_BOTTOM_H } from '@constants/styleConst';
+import { FOOTER_H} from '@constants/styleConst';
 import SheitLogo from '@assets/icon/Sheit_logo.png';
 import { BsTwitter, BsYoutube, BsDiscord } from 'react-icons/bs';
 import { AiFillInstagram } from 'react-icons/ai';
 
 const Container = styled('div')`
-  width: ${APP_MAX_W};
+  width: 100%;
   height: ${FOOTER_H};
   padding: 0 20px;
   background-color: ${colors.primary35};
-  margin-bottom: ${APP_BOTTOM_H};
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 

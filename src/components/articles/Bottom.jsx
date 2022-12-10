@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import { APP_MAX_W, APP_BOTTOM_H } from '@constants/styleConst';
 import { Link } from 'react-router-dom';
-import HomeImage from '@assets/image/home.svg';
-import SearchImage from '@assets/image/search.svg';
-import PeopleImage from '@assets/image/people.svg';
-import CalendarImage from '@assets/image/calendar.svg';
-import UserImage from '@assets/image/user.svg';
+import HomeImage from '@assets/icon_button/home.svg';
+import SearchImage from '@assets/icon_button/search.svg';
+import PeopleImage from '@assets/icon_button/people.svg';
+import CalendarImage from '@assets/icon_button/calendar.svg';
+import UserImage from '@assets/icon_button/user.svg';
 
 const Container = styled('div')`
   position: fixed;
