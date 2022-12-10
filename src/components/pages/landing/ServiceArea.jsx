@@ -65,14 +65,14 @@ const ServiceSection = styled(Row)`
 
 const ServiceImgWrapper = styled('div')`
   width: 40%;
-  height: auto;
+  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 const ServiceImg = styled('img')`
-  width: 80%;
+  height: 100%;
   border: 5px solid black;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 20px 20px 8px;
