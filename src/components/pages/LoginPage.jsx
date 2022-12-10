@@ -10,9 +10,18 @@ import { APP_HEADER_H, APP_BOTTOM_H, FOOTER_H } from '@constants/styleConst';
 
 const Container = styled(Column)`
   width: 100%;
+<<<<<<< HEAD
   height: calc(100vh - ${APP_HEADER_H} - ${APP_BOTTOM_H} - ${FOOTER_H});
   align-items: center;
   justify-content: center;
+=======
+  height: 100vh;
+  align-items: center;
+`;
+
+const LogoWrapper = styled('img')`
+  height: 300px;
+>>>>>>> 3f0cd1f (chore: bug)
 `;
 
 const LogoWrapper = styled('img')`
