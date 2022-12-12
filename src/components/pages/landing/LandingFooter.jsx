@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import * as colors from '@styles/colors';
 import { FOOTER_H} from '@constants/styleConst';
-import SheitLogo from '@assets/icon/Sheit_logo.png';
+import SheitLogo from '@assets/icon/Sheit_logo.svg';
 import { BsTwitter, BsYoutube, BsDiscord } from 'react-icons/bs';
 import { AiFillInstagram } from 'react-icons/ai';
 
@@ -11,13 +11,13 @@ const Container = styled('div')`
   width: 100%;
   height: ${FOOTER_H};
   padding: 0 20px;
-  background-color: ${colors.primary35};
+  background-color: ${colors.primary15};
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 const LogoImage = styled('img')`
-  width: 70px;
-  margin-right: 24px;
+  margin: 6px 0;
+  height: 40px;
 `;
 
 const EmojiWrapper = styled('div')`
@@ -28,7 +28,7 @@ const EmojiWrapper = styled('div')`
 `;
 
 const EmojiButton = styled('button')`
-  color: ${colors.primary20};
+  color: ${colors.bgSecondary};
   font-size: 30px;
   cursor: pointer;
 `;
@@ -46,7 +46,6 @@ const FooterTextContainer = styled('div')`
 `;
 
 const FooterText = styled.span`
-  color: ${colors.textSecondary};
   font-size: 12px;
 `;
 

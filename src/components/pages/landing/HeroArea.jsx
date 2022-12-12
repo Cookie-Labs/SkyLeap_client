@@ -81,7 +81,7 @@ const HeroArea = () => {
     <Container>
       <TitleWrapper>
         <Back />
-        <Title>SheIt</Title>
+        <Title>SHEIT</Title>
       </TitleWrapper>
       <Subtitle>
         여성들의 민감한 의료 정보 문제를 해결해주는 플랫폼, She It (쉿)

@@ -14,7 +14,6 @@ import { Column } from '@components/atoms/wrapper.style';
 const TopBanner = styled('div')`
   width: 100%;
   height: 30%;
-  border: 1px solid;
   margin-bottom: 5%;
 `;
 
@@ -33,7 +32,7 @@ const CategoryImg = styled('img')`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 2px solid ${colors.primary70};
+  border: 2px solid ${colors.bgPrimary};
   border-radius: 10%;
 `;
 
@@ -41,7 +40,7 @@ const Title = styled('div')`
   font-size: 15px;
   font-weight: 600;
   height: auto;
-  border: 2px solid ${colors.primary35};
+  border: 2px solid ${colors.bgPrimary};
   border-radius: 10px;
   margin: 0 5%;
   display: inline-block;
@@ -54,7 +53,7 @@ const Emphasis = styled('span')`
 
 const ContentContainer = styled(Column)`
   margin: 2% 5%;
-  border: 2px solid ${colors.primary35};
+  border: 2px solid ${colors.bgPrimary};
   border-radius: 10px;
   padding: 0 10px;
 `;
