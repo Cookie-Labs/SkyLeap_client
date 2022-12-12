@@ -39,6 +39,7 @@ const Hospitals = ({ topic, type }) => {
     <>
         {typeItems.map((hospital) => (
             <Hospital
+                key={hospital.id}
                 id={hospital.id}
                 topic={hospital.topic}
                 image={hospital.image}
