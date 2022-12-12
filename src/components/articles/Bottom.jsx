@@ -17,9 +17,10 @@ const Container = styled('div')`
   width: ${APP_MAX_W};
   height: ${APP_BOTTOM_H};
   bottom: 0;
-  background-color: ${colors.primary70};
   z-index: 999;
-  border-top: 1px solid ${colors.primary35};
+  background-color: ${colors.bgWhite};
+  border-top: 2px solid ${colors.bgPrimary};
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 const ButtonWrapper = styled('div')`

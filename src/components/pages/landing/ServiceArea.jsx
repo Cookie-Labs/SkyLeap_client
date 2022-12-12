@@ -6,6 +6,12 @@ import { Row, Column } from '@atoms/wrapper.style';
 import { lg, sm } from '@styles/GlobalStyle';
 import service1Img from '@assets/image/service1.png';
 import service2Img from '@assets/image/service2.png';
+import service3Img from '@assets/image/service3.png';
+import service4Img from '@assets/image/service4.png';
+import service5Img from '@assets/image/service5.png';
+import service6Img from '@assets/image/service6.png';
+import service7Img from '@assets/image/service7.png';
+import service8Img from '@assets/image/service8.png';
 
 const Container = styled('div')`
   display: flex;
@@ -122,10 +128,8 @@ const ServiceArea = forwardRef((props, ref) => {
       <ServiceSection>
         <ServiceContentWrapper>
           <ServiceTitleNum>01.</ServiceTitleNum>
-          <ServiceTitleBold>여성 로그인</ServiceTitleBold>
-          <ServiceTitle>
-            여성들로 이루어진 커뮤니티와 병원에 대한 진솔한 후기.
-          </ServiceTitle>
+          <ServiceTitleBold>SHEIT</ServiceTitleBold>
+          <ServiceTitle>여성을 위한 병원 정보 플랫폼</ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>
           <ServiceImg src={service1Img} />
@@ -134,13 +138,9 @@ const ServiceArea = forwardRef((props, ref) => {
       <ServiceSection backgroundColor={colors.primary15}>
         <ServiceContentWrapper>
           <ServiceTitleNum>02.</ServiceTitleNum>
-          <ServiceTitleBold>
-            내가 원하는
-            <br />
-            병원과 의사 선택
-          </ServiceTitleBold>
+          <ServiceTitleBold>맞춤 검색</ServiceTitleBold>
           <ServiceTitle>
-            후기를 확인하고 원하는 의사에게 진료 받으세요.
+            내 주변 여성 의사가 있는<br/> 병원을 검색해보세요.
           </ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>
@@ -150,74 +150,69 @@ const ServiceArea = forwardRef((props, ref) => {
       <ServiceSection>
         <ServiceContentWrapper>
           <ServiceTitleNum>03.</ServiceTitleNum>
-          <ServiceTitleBold>전문가와의 상담</ServiceTitleBold>
+          <ServiceTitleBold>맞춤 리스트업</ServiceTitleBold>
           <ServiceTitle>
-            인터넷, 커뮤니티에서 얻은 부정확한 정보보다는 믿을 수 있는 전문가와
-            상담해 보세요.
+            여성 의료진 정보를 <br />한 눈에 확인해보세요.
           </ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>
-          <ServiceImg src={service1Img} />
+          <ServiceImg src={service3Img} />
         </ServiceImgWrapper>
       </ServiceSection>
       <ServiceSection backgroundColor={colors.primary15}>
         <ServiceContentWrapper>
           <ServiceTitleNum>04.</ServiceTitleNum>
-          <ServiceTitleBold>여성들의 익명 커뮤니티</ServiceTitleBold>
-          <ServiceTitle>
-            우리들만의 정보, 고민을 이야기할 수 있는 익명 커뮤니티에요.
-          </ServiceTitle>
+          <ServiceTitleBold>병원 상세 정보</ServiceTitleBold>
+          <ServiceTitle>한 눈에 확인할 수 있는 정보들</ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>
-          <ServiceImg src={service1Img} />
+          <ServiceImg src={service4Img} />
         </ServiceImgWrapper>
       </ServiceSection>
       <ServiceSection>
         <ServiceContentWrapper>
           <ServiceTitleNum>05.</ServiceTitleNum>
-          <ServiceTitleBold>신뢰 가능한 후기</ServiceTitleBold>
+          <ServiceTitleBold>영수증 리뷰</ServiceTitleBold>
           <ServiceTitle>
-            실제 방문자 인증을 통한 후기와 리뷰를 확인해보세요.
+            신뢰할 수 있는 방문 여성
           </ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>
-          <ServiceImg src={service1Img} />
+          <ServiceImg src={service5Img} />
         </ServiceImgWrapper>
       </ServiceSection>
       <ServiceSection backgroundColor={colors.primary15}>
         <ServiceContentWrapper>
           <ServiceTitleNum>06.</ServiceTitleNum>
-          <ServiceTitleBold>여성을 위한 캘린더</ServiceTitleBold>
+          <ServiceTitleBold>커뮤니티</ServiceTitleBold>
           <ServiceTitle>
-            생리 기록(생리주기, 통증), 예방 접종, 건강검진 등 의료 기록을 한눈에
-            확인해보세요.
+            여성 병원 정보와 다양한 이야기
           </ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>
-          <ServiceImg src={service1Img} />
+          <ServiceImg src={service6Img} />
         </ServiceImgWrapper>
       </ServiceSection>
       <ServiceSection>
         <ServiceContentWrapper>
           <ServiceTitleNum>07.</ServiceTitleNum>
-          <ServiceTitleBold>이벤트</ServiceTitleBold>
+          <ServiceTitleBold>여성 전용 캘린더</ServiceTitleBold>
           <ServiceTitle>
-            내 몸, 건강과 관련된 검진을 챌린지로, 추첨을 통한 검진비 지원, 후기
-            작성을 통한 기프티콘 교환부터 제휴 병원과의 이벤트 할인.
+            병원 일정부터 생리 주기까지 <br/>확인할 수 있는 캘린더
           </ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>
-          <ServiceImg src={service1Img} />
+          <ServiceImg src={service7Img} />
         </ServiceImgWrapper>
       </ServiceSection>
       <ServiceSection backgroundColor={colors.primary15}>
         <ServiceContentWrapper>
           <ServiceTitleNum>08.</ServiceTitleNum>
-          <ServiceTitleBold>마켓 기능</ServiceTitleBold>
-          <ServiceTitle>제휴된 여성용품 업체를 통한 주문.</ServiceTitle>
+          <ServiceTitleBold>스토어</ServiceTitleBold>
+          <ServiceTitle>여성을 위한 다양한 아이템 판매</ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>
-          <ServiceImg src={service1Img} />
+          <ServiceImg src={service8Img} />
         </ServiceImgWrapper>
       </ServiceSection>
     </Container>

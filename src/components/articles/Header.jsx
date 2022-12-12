@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import { APP_MAX_W, APP_HEADER_H } from '@constants/styleConst';
 import { Link } from 'react-router-dom';
-import SheitLogo from '@assets/icon/Sheit_logo.png';
+import SheitLogo from '@assets/icon/Sheit_logo.svg';
 import BellImage from '@assets/icon_button/bell_on.svg';
 import CartImage from '@assets/icon_button/shopping_cart.svg';
 import SettingImage from '@assets/icon_button/settings.svg';
@@ -17,13 +17,12 @@ const Container = styled('div')`
   width: ${APP_MAX_W};
   height: ${APP_HEADER_H};
   padding: 0 15px;
-  background-color: ${colors.primary70};
+  background-color: ${colors.bgPrimary};
   z-index: 999;
-  border-bottom: 1px solid ${colors.primary35};
 `;
 
 const LogoImage = styled('img')`
-  width: 130px;
+  height: calc(${APP_HEADER_H} - 1rem);
   margin-right: 24px;
 `;
 
@@ -35,6 +34,7 @@ const ButtonWrapper = styled('div')`
 const EmojiButton = styled('img')`
   width: 25px;
   margin-left: 10px;
+  color: ${colors.textPrimary};
 `;
 
 const Header = ({ page }) => {

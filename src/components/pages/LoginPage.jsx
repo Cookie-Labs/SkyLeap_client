@@ -2,24 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import Layout from '@articles/Layout';
 import { Column } from '@atoms/wrapper.style';
-import SheitLogo from '@assets/icon/Sheit_logo.png';
+import SheitLogo from '@assets/icon/Sheit_logo.svg';
 import NLoginImage from '@assets/image/Naver_login.png';
 import KLoginImage from '@assets/image/Kakao_login.png';
 import { Link } from 'react-router-dom';
+import { APP_HEADER_H, APP_BOTTOM_H, FOOTER_H } from '@constants/styleConst';
 
 const Container = styled(Column)`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - ${APP_HEADER_H} - ${APP_BOTTOM_H} - ${FOOTER_H});
   align-items: center;
+  justify-content: center;
 `;
 
 const LogoWrapper = styled('img')`
-  height: 300px;
-`;
-
-const TextWrapper = styled('span')`
-  font-size: 50px;
-  font-weight: 900;
+  height: 20vh;
+  margin-top: 5vh;
 `;
 
 const ImageWrpper = styled('img')`
@@ -44,7 +42,6 @@ const LoginPage = () => {
         <Link to={'/main'}>
           <LogoWrapper src={SheitLogo} />
         </Link>
-        <TextWrapper>SHEIT</TextWrapper>
         <ImageWrpper src={NLoginImage} />
         <ImageWrpper src={KLoginImage} />
         <LinkWrapper>다른 계정으로 로그인하기</LinkWrapper>
