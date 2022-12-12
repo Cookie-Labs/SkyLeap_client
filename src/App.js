@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import LandingPage from '@pages/LandingPage';
 import MainPage from '@pages/MainPage';
 import SearchPage from '@pages/SearchPage';
+import SearchPage2 from '@pages/SearchPage2';
 import CommunityPage from '@pages/CommunityPage';
 import CalendarPage from '@pages/CalendarPage';
 import MyPage from '@pages/MyPage';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/search2" element={<SearchPage2 />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/mypage" element={<MyPage />} />

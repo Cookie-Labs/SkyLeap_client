@@ -1,32 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
-import Layout from '@components/articles/Layout';
+import SearchLayout from '@components/articles/SearchLayout';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import { APP_HEADER_H, APP_BOTTOM_H} from '@constants/styleConst';
 // https://developers.kakao.com/console/app/836767/config/platform 도메인 변경 사이트
-
-const MarkerContent = styled('div')`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  align-self: center;
-`
 
 const SearchPage = () => {
   return (
-    <Layout>
+    <SearchLayout>
       <Map
-        center={{ lat: 37.450335635829795, lng: 127.13015347950571 }}
+        center={{ lat: 37.45521946671777, lng: 127.13388036866858  }}
         level={3}
-        style={{ width: '100%', height: '360px' }}
+        style={{ width: '100%', height: `calc(100vh - ${APP_HEADER_H} - ${APP_BOTTOM_H})` }}
       >
         <MapMarker
-          position={{ lat: 37.450335635829795, lng: 127.13015347950571 }}
+          position={{ lat: 37.45521946671777, lng: 127.13388036866858  }}
         >
-          <MarkerContent>cocasdf</MarkerContent>
+          <div style={{fontWeight: '700', color: 'red', padding: '0 0 0 50px'}}>cocane</div>
         </MapMarker>
       </Map>
-    </Layout>
+    </SearchLayout>
   );
 };
 
