@@ -15,7 +15,7 @@ const SearchPage = () => {
         <MapMarker
           position={{ lat: 37.45521946671777, lng: 127.13388036866858  }}
         >
-          <div style={{fontWeight: '700', color: 'red', padding: '0 0 0 50px'}}>cocane</div>
+          <div style={{fontWeight: '700', color: 'red', padding: '0 0 0 50px'}}>cocone</div>
         </MapMarker>
       </Map>
     </SearchLayout>
