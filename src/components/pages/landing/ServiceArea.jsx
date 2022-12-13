@@ -128,7 +128,7 @@ const ServiceArea = forwardRef((props, ref) => {
       <ServiceSection>
         <ServiceContentWrapper>
           <ServiceTitleNum>01.</ServiceTitleNum>
-          <ServiceTitleBold>SHEIT</ServiceTitleBold>
+          <ServiceTitleBold>SHEGO</ServiceTitleBold>
           <ServiceTitle>여성을 위한 병원 정보 플랫폼</ServiceTitle>
         </ServiceContentWrapper>
         <ServiceImgWrapper>

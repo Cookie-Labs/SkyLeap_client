@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SheitLogo from '@assets/icon/Sheit_logo.svg';
+import SheGoLogo from '@assets/icon/SheGo_logo.svg';
 import * as colors from '@styles/colors';
 import { lg } from '@styles/GlobalStyle';
 import { APP_HEADER_H } from '@constants/styleConst';
@@ -72,7 +72,7 @@ const LandingHeader = ({ onNavClick }) => {
   return (
     <Container>
       <LogoImage
-        src={SheitLogo}
+        src={SheGoLogo}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       />
       <ButtonWrapper>
