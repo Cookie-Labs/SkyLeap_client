@@ -81,11 +81,9 @@ const HeroArea = () => {
     <Container>
       <TitleWrapper>
         <Back />
-        <Title>SHEIT</Title>
+        <Title>SHEGO</Title>
       </TitleWrapper>
-      <Subtitle>
-        여성들의 민감한 의료 정보 문제를 해결해주는 플랫폼, She It (쉿)
-      </Subtitle>
+      <Subtitle>병원을 가는 경험이 편하게 쉬고 가는 경험, She Go (쉬고)</Subtitle>
       <ButtonWrapper>
         <NextButton to="/login">정보 바로보기</NextButton>
       </ButtonWrapper>

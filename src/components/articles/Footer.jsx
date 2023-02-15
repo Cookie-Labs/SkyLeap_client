@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import * as colors from '@styles/colors';
 import { APP_MAX_W, FOOTER_H, APP_BOTTOM_H } from '@constants/styleConst';
-import SheitLogo from '@assets/icon/Sheit_logo.svg';
+import SheGoLogo from '@assets/icon/SheGo_logo.svg';
 import { BsTwitter, BsYoutube, BsDiscord } from 'react-icons/bs';
 import { AiFillInstagram } from 'react-icons/ai';
 
@@ -80,7 +80,7 @@ const Footer = () => {
     <Container>
       <FooterHeadContainer>
         <Link to={'/'}>
-          <LogoImage src={SheitLogo} />
+          <LogoImage src={SheGoLogo} />
         </Link>
         <EmojiWrapper>
           <EmojiButton
@@ -118,11 +118,11 @@ const Footer = () => {
         <FooterText>Hunter's Pot</FooterText>
       </FooterTextContainer>
       <FooterTextContainer>
-        <FooterText>📧Email: sheitcsteam@gmail.com </FooterText>
+        <FooterText>📧Email: shegocsteam@gmail.com </FooterText>
         <FooterText>📱Phone: 010-9947-3665</FooterText>
       </FooterTextContainer>
       <FooterTextContainer>
-        <FooterText>&copy; SHEIT. 2022. All rights reserved</FooterText>
+        <FooterText>&copy; SHEGO. 2022. All rights reserved</FooterText>
       </FooterTextContainer>
       <FooterLinks>
         <FooterText>이용약관</FooterText>

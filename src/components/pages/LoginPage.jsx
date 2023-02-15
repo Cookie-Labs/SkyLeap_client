@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Layout from '@articles/Layout';
 import { Column } from '@atoms/wrapper.style';
-import SheitLogo from '@assets/icon/Sheit_logo.svg';
+import SheGoLogo from '@assets/icon/SheGo_logo.svg';
 import NLoginImage from '@assets/image/Naver_login.png';
 import KLoginImage from '@assets/image/Kakao_login.png';
 import { Link } from 'react-router-dom';
@@ -40,7 +40,7 @@ const LoginPage = () => {
     <Layout>
       <Container>
         <Link to={'/main'}>
-          <LogoWrapper src={SheitLogo} />
+          <LogoWrapper src={SheGoLogo} />
         </Link>
         <ImageWrpper src={NLoginImage} />
         <ImageWrpper src={KLoginImage} />

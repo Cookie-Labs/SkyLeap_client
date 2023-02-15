@@ -18,7 +18,7 @@ import { TbSquareAsterisk } from 'react-icons/tb';
 
 const Container = styled('div')`
   width: 100%;
-  height: calc(100vh - ${APP_HEADER_H} - ${APP_BOTTOM_H} - ${FOOTER_H});
+  height: calc(100vh - ${APP_HEADER_H} - ${APP_BOTTOM_H} - ${FOOTER_H} - 3rem);
 `;
 
 const HospitalContainer = styled('div')`
@@ -121,6 +121,7 @@ const RiskWrapper = styled('div')`
   background-color: ${colors.bgWhite};
   gap: 10px;
   border-top: 1px solid ${colors.bgSecondary};
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 const HospitalDetailPage = () => {

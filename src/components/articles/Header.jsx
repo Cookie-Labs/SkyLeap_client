@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import { APP_MAX_W, APP_HEADER_H } from '@constants/styleConst';
 import { Link } from 'react-router-dom';
-import SheitLogo from '@assets/icon/Sheit_logo.svg';
+import SheGoLogo from '@assets/icon/SheGo_logo.svg';
 import BellImage from '@assets/icon_button/bell_on.svg';
 import CartImage from '@assets/icon_button/shopping_cart.svg';
 import SettingImage from '@assets/icon_button/settings.svg';
@@ -41,7 +41,7 @@ const Header = ({ page }) => {
   return (
     <Container>
       <Link to={'/main'}>
-        <LogoImage src={SheitLogo} />
+        <LogoImage src={SheGoLogo} />
       </Link>
       <ButtonWrapper>
         <Link to={'/notification'}>
