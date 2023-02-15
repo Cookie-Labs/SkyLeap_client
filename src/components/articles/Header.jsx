@@ -1,59 +1,102 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
-import { APP_MAX_W, APP_HEADER_H } from '@constants/styleConst';
+import rafflixLogo from '@assets/logo/Rafflix_logo.svg';
+import { APP_HEADER_H, APP_MAX_W } from '@constants/styleConst';
 import { Link } from 'react-router-dom';
-import SheGoLogo from '@assets/icon/SheGo_logo.svg';
-import BellImage from '@assets/icon_button/bell_on.svg';
-import CartImage from '@assets/icon_button/shopping_cart.svg';
-import SettingImage from '@assets/icon_button/settings.svg';
+import {
+  HiOutlineTicket,
+  HiOutlineShoppingBag,
+  HiOutlinePlusCircle,
+} from 'react-icons/hi';
+import ConnectWallet from '@articles/ConnectWallet';
 
-const Container = styled('div')`
+const Container = styled.div`
   position: fixed;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: ${APP_MAX_W};
-  height: ${APP_HEADER_H};
-  padding: 0 15px;
+  width: ${APP_MAX_W}px;
+  height: ${APP_HEADER_H}px;
   background-color: ${colors.bgPrimary};
+  border-bottom: solid 1px ${colors.bgWhite};
   z-index: 999;
 `;
 
-const LogoImage = styled('img')`
-  height: calc(${APP_HEADER_H} - 1rem);
+const LogoImage = styled.img`
+  width: 200px;
   margin-right: 24px;
+
+  &:hover {
+    width: 190px;
+    transition: 0.3s;
+  }
 `;
 
-const ButtonWrapper = styled('div')`
+const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
 `;
 
-const EmojiButton = styled('img')`
-  width: 25px;
-  margin-left: 10px;
+const ButtonWrapper = styled(Link)`
+  height: 60px;
+  width: 150px;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+  background-color: ${(props) => props.color};
   color: ${colors.textPrimary};
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  text-decoration: none;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+    color: ${colors.textPrimary};
+    transition: 0.3s;
+    box-shadow: 0 0 5px ${(props) => props.color},
+      0 0 10px ${(props) => props.color}, 0 0 20px ${(props) => props.color},
+      0 0 40px ${(props) => props.color};
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
+  }
 `;
 
 const Header = ({ page }) => {
   return (
     <Container>
-      <Link to={'/main'}>
-        <LogoImage src={SheGoLogo} />
+      <Link to={'/'}>
+        <LogoImage src={rafflixLogo} />
       </Link>
-      <ButtonWrapper>
-        <Link to={'/notification'}>
-          <EmojiButton src={BellImage} />
-        </Link>
-        <Link to={'/cart'}>
-          <EmojiButton src={CartImage} />
-        </Link>
-        <Link to={'/settings'}>
-          <EmojiButton src={SettingImage} />
-        </Link>
-      </ButtonWrapper>
+      <ButtonsContainer>
+        <ButtonWrapper to="/" color={colors.primary80}>
+          <HiOutlineTicket size="30" />
+          <span>
+            NFT
+            <br /> RAFFLES
+          </span>
+        </ButtonWrapper>
+        <ButtonWrapper to="/" color={colors.secondary80}>
+          <HiOutlineShoppingBag size="30" />
+          <span>
+            REAL ASSETS
+            <br /> RAFFLES
+          </span>
+        </ButtonWrapper>
+        <ButtonWrapper to="/" color={colors.tertiary80}>
+          <HiOutlinePlusCircle size="30" />
+          <span>
+            CREATE NEW
+            <br /> RAFFLES
+          </span>
+        </ButtonWrapper>
+        <ConnectWallet/>
+      </ButtonsContainer>
     </Container>
   );
 };
