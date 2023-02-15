@@ -2,16 +2,17 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./src/components/*"],
       "@assets/*": ["./src/assets/*"],
       "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@mock/*": ["./src/mock/*"],
+      "@states/*": ["./src/states/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@contracts/*": ["./src/contracts/*"],
       "@pages/*": ["./src/components/pages/*"],
       "@atoms/*": ["./src/components/atoms/*"],
-      "@articles/*": ["./src/components/articles/*"],
-      "@constants/*": ["./src/constants/*"]
+      "@articles/*": ["./src/components/articles/*"]
     }
   },
   "exclude": ["node_modules", "build"]

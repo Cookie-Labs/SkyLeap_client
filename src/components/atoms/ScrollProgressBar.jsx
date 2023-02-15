@@ -9,11 +9,11 @@ const ScrollProgressBar = ({ scaleX }) => {
       style={{
         scaleX,
         position: 'fixed',
-        top: `calc(${APP_HEADER_H} - 5px)`,
+        top: `calc(${APP_HEADER_H}px - 5px)`,
         left: 0,
         right: 0,
         height: '5px',
-        background: `${colors.primary35}`,
+        background: `${colors.primary40}`,
         transformOrigin: '0%',
         zIndex: 1000,
       }}
