@@ -1,18 +1,18 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import rafflixLogo from '@assets/logo/Rafflix_logo.svg';
-import { FOOTER_H, FOOTER_MT} from '@constants/styleConst';
+import { FOOTER_H, FOOTER_MT } from '@constants/styleConst';
 import { Link } from 'react-router-dom';
 import { BsTwitter, BsTelegram, BsDiscord } from 'react-icons/bs';
 
 const Container = styled.div`
-    width: 100%;
-    height: ${FOOTER_H}px;
-    padding: 20px;
-    background-color: ${colors.bgBlack};
-    margin-top: ${FOOTER_MT}px;
-`
+  width: 100%;
+  height: ${FOOTER_H}px;
+  padding: 20px;
+  background-color: ${colors.bgBlack};
+  margin-top: ${FOOTER_MT}px;
+`;
 
 const LogoImage = styled.img`
   width: 70px;
@@ -36,27 +36,27 @@ const EmojiButton = styled.button`
 `;
 
 const TopWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-`
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+`;
 
 const TextWrapper = styled.div`
-    display: flex;
-    gap: 12px;
-    margin-bottom: 10px;
-`
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+`;
 
 const FooterText = styled.span`
-    color: ${colors.textSecondary};
-    font-size: 14px;
-`
+  color: ${colors.textSecondary};
+  font-size: 14px;
+`;
 
 const FooterLinks = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 12px;
-`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
 
 const Divider = () => {
   return (
@@ -118,6 +118,6 @@ const Footer = () => {
       </FooterLinks>
     </Container>
   );
-}
+};
 
-export default Footer
+export default Footer;
