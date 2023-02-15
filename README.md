@@ -1,3 +1,3 @@
-# SheGo-client
+# TEAM Hunter's Pot project
 
-## TEAM Hunter's Pot project
+## RAFFLIX

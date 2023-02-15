@@ -7,7 +7,7 @@ import { AiOutlineCaretUp } from 'react-icons/ai';
 
 const CardContainer = styled(Column)`
   border: 3px solid
-    ${(props) => (props.isOpened ? colors.bgBlack : colors.primary35)};
+    ${(props) => (props.isOpened ? colors.bgBlack : colors.primary40)};
   border-radius: 10px;
   white-space: wrap;
   margin: 10px;
@@ -17,7 +17,7 @@ const CardContainer = styled(Column)`
   height: auto;
 
   &:hover {
-    background-color: ${(props) => !props.isOpened && colors.primary35};
+    background-color: ${(props) => !props.isOpened && colors.primary40};
   }
 
   ${lg`
@@ -53,9 +53,9 @@ const TitleContainer = styled(Column)`
 `;
 
 const Emphasis = styled('span')`
-    font-size: 2rem;
-    font-weight: 700;
-`
+  font-size: 2rem;
+  font-weight: 700;
+`;
 
 const ToggleButton = styled(AiOutlineCaretUp)`
   transition: 0.3s;

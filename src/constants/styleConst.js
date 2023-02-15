@@ -1,4 +1,4 @@
-export const APP_MAX_W = '50vh';
-export const APP_HEADER_H = '5rem';
-export const APP_BOTTOM_H = '5rem';
-export const FOOTER_H = '10rem';
+export const APP_MAX_W = 1250;
+export const APP_HEADER_H = 120;
+export const FOOTER_H = 150;
+export const FOOTER_MT = 50;
