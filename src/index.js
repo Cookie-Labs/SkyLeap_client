@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom';
 import ScrollToTop from '@articles/ScrollToTop';
 import App from './App';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import CheckWallet from '@articles/CheckWallet';
-
+import CheckWallet from '@articles/CheckWallet';
 
 // if (process.env.NODE_ENV === "development") {
 //   const { worker } = require("./mock/~~~");
@@ -15,12 +15,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <RecoilRoot>
     <BrowserRouter>
       <ScrollToTop />
-      {/* <CheckWallet /> */}
+      <CheckWallet />
       <App />
     </BrowserRouter>
     <ToastContainer theme="dark" />
-  </React.StrictMode>,
+  </RecoilRoot>,
 );
