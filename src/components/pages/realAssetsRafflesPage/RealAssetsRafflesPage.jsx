@@ -10,12 +10,12 @@ const TitleWrapper = styled.span`
   padding-top: 15px;
 `;
 
-const NFTRafflesPage = () => {
+const RealAssetsRafflesPage = () => {
   return (
-    <Layout page="nft-raffles-page">
-      <TitleWrapper>NFT RAFFLES</TitleWrapper>
+    <Layout page="real-assets-raffles-page">
+      <TitleWrapper>REAL ASSETS RAFFLES</TitleWrapper>
     </Layout>
   );
 };
 
-export default NFTRafflesPage;
+export default RealAssetsRafflesPage;

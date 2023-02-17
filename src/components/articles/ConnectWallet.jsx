@@ -9,6 +9,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { userAccount, userWalletType, userNetworkId } from '@states/userState';
 import CustomModal from '@articles/CustomModal';
 import { networks } from '@constants/networkInfo';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -149,6 +150,7 @@ const ConnectWallet = () => {
   const [walletType, setWalletType] = useRecoilState(userWalletType);
   const setNetworkId = useSetRecoilState(userNetworkId);
   const klaytnNetworkId = networks['cypress'].chainId;
+  const navigate = useNavigate();
 
   const loginWithKaikas = async () => {
     if (!kaikas) {
@@ -258,11 +260,11 @@ const ConnectWallet = () => {
         toggleModal={() => setShowDisconnectWallet(false)}
       >
         <ModalTitle>{formatAddress(account)}</ModalTitle>
-        <SelectButton onClick={() => {}}>
+        <SelectButton onClick={() => {navigate('/my');}}>
           <BiUser size="30" />
           My Page
         </SelectButton>
-        <SelectButton onClick={() => {}}>
+        <SelectButton onClick={() => {navigate('/createNFT');}}>
           <BiPencil size="30" />
           Create
         </SelectButton>
