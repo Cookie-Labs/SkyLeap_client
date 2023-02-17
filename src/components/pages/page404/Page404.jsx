@@ -3,30 +3,29 @@ import Layout from '@articles/Layout';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import { Link } from 'react-router-dom';
-import ErrorImage from '@assets/img/ErrorImage.svg';
+import ErrorImage from '@assets/image/ErrorImage.svg';
 
-const Container = styled('div')`
+const Container = styled.div`
   display: flex;
   width: 100%;
   padding: 0 20px;
-  margin-bottom: 150px;
   align-items: center;
   flex-direction: column;
 `;
 
-const ButtonWrapper = styled('button')`
-  color: ${colors.bgRed};
-  width: 150px;
-  height: 40px;
-  font-size: 15px;
-  cursor: pointer;
-  border: 4px solid ${colors.bgRed};
-  margin: 3px;
+const ErrorIll = styled.img`
+  width: 50vw;
+  height: 50vh;
+  margin: 10vh;
 `;
 
-const ErrorIll = styled('img')`
-  width: 100%;
-  height: 100%;
+const ButtonWrapper = styled.button`
+  color: ${colors.bgRed};
+  width: 300px;
+  height: 70px;
+  font-size: 30px;
+  cursor: pointer;
+  border: 4px solid ${colors.bgRed};
 `;
 
 const Page404 = () => {
@@ -34,8 +33,8 @@ const Page404 = () => {
     <Layout>
       <Container>
         <ErrorIll src={ErrorImage} />
-        <Link to="/list" name="return to list">
-          <ButtonWrapper>return to list</ButtonWrapper>
+        <Link to="/" name="return to main">
+          <ButtonWrapper>RETURN TO HOME</ButtonWrapper>
         </Link>
       </Container>
     </Layout>
