@@ -10,6 +10,7 @@ import {
   HiOutlinePlusCircle,
 } from 'react-icons/hi';
 import ConnectWallet from '@articles/ConnectWallet';
+import MyBalance from '@articles/MyBalance';
 
 const Container = styled.div`
   position: fixed;
@@ -81,14 +82,14 @@ const Header = ({ page }) => {
             <br /> RAFFLES
           </span>
         </ButtonWrapper>
-        <ButtonWrapper to="/" color={colors.secondary80}>
+        <ButtonWrapper to="/realAssetsRaffles" color={colors.secondary80}>
           <HiOutlineShoppingBag size="30" />
           <span>
             REAL ASSETS
             <br /> RAFFLES
           </span>
         </ButtonWrapper>
-        <ButtonWrapper to="/" color={colors.tertiary80}>
+        <ButtonWrapper to="/createRaffle" color={colors.tertiary80}>
           <HiOutlinePlusCircle size="30" />
           <span>
             CREATE NEW
@@ -96,6 +97,7 @@ const Header = ({ page }) => {
           </span>
         </ButtonWrapper>
         <ConnectWallet/>
+        <MyBalance/>
       </ButtonsContainer>
     </Container>
   );
