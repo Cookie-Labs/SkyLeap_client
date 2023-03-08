@@ -33,6 +33,7 @@ export default function useCaver() {
         setKlayBalanceNum(convertedBalNum);
       });
     }
+    
     myBalance();
   }, [account, caver.klay, caver.utils]);
 

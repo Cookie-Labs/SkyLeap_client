@@ -107,7 +107,7 @@ const Footer = () => {
         <FooterText>Hunter's Pot</FooterText>
       </TextWrapper>
       <TextWrapper>
-        <FooterText>&copy; TTOT. 2022. All rights reserved</FooterText>
+        <FooterText>&copy; TTOT. 2023. All rights reserved</FooterText>
       </TextWrapper>
       <FooterLinks>
         <FooterText>이용약관</FooterText>
