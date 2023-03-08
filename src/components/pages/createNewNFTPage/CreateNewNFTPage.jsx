@@ -5,13 +5,7 @@ import Layout from '@articles/Layout';
 import useNFT from '@hooks/useNFT';
 import { BiImage } from 'react-icons/bi';
 import LoadingSpinner from '@atoms/LoadingSpinner';
-
-const TitleWrapper = styled.span`
-  color: ${colors.textSecondary};
-  font-size: 80px;
-  font-weight: 900;
-  padding: 15px 0px;
-`;
+import PageTitle from '@atoms/PageTitle';
 
 const ContentContainer = styled.div`
   width: 300px;
@@ -130,7 +124,7 @@ const CreateNewNFTPage = () => {
 
   return (
     <Layout page="create-new-nft-page">
-      <TitleWrapper>CREATE NEW NFT</TitleWrapper>
+      <PageTitle>CREATE NEW NFT</PageTitle>
       <ContentContainer>
         <BoxTitle>* IMAGE</BoxTitle>
         <LabelBox for="fileInput">

@@ -2,18 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import Layout from '@articles/Layout';
-
-const TitleWrapper = styled.span`
-  color: ${colors.textSecondary};
-  font-size: 80px;
-  font-weight: 900;
-  padding-top: 15px;
-`;
+import useNFT from '@hooks/useNFT';
+import PageTitle from '@atoms/PageTitle';
 
 const MyPage = () => {
   return (
     <Layout page="my-page">
-      <TitleWrapper>MY PAGE</TitleWrapper>
+      <PageTitle>MY PAGE</PageTitle>
     </Layout>
   );
 };
