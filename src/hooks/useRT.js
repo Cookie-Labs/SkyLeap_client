@@ -18,7 +18,7 @@ export default function useRT() {
           from: account,
         });
 
-        myContract.methods
+        await myContract.methods
           .balanceOf(account)
           .call({ from: account })
           .then((result) => setMyTokenBalance(result));
