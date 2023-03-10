@@ -13,7 +13,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-`
+`;
 
 const BoxTitle = styled.span`
   color: ${colors.textPrimary};
@@ -65,19 +65,31 @@ const TextBox = styled.input`
   height: 30px;
   margin-bottom: 30px;
   border-radius: 10px;
-  border: 0;
+  color: ${colors.textPrimary};
   font-weight: 700;
   padding: 5px;
+  background-color: ${colors.bgTertiary};
+  border: 1px solid ${colors.bgWhite};
+
+  &:hover {
+    border: 1px solid ${colors.primary80};
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid ${colors.primary80};
+    box-shadow: 0 0 10px ${colors.primary40};
+  }
 `;
 
 const BottomWrapper = styled.div`
-  width:100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 30px;
   font-weight: 900;
-`
+`;
 
 const MintButton = styled.button`
   width: 200px;
@@ -87,6 +99,7 @@ const MintButton = styled.button`
   background-color: ${colors.bgTertiary};
   border: 1px solid ${colors.bgWhite};
   border-radius: 10px;
+  font-size: 25px;
 
   &:hover {
     background-color: ${colors.bgWhite};

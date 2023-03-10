@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import * as colors from '@styles/colors';
+// import styled from 'styled-components';
+// import * as colors from '@styles/colors';
 import Layout from '@articles/Layout';
 import PageTitle from '@atoms/PageTitle';
 
