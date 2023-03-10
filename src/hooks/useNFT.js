@@ -35,7 +35,7 @@ export default function useNFT() {
         from: account,
       });
 
-      myContract.methods
+      await myContract.methods
         .mintNFT(_tokenURI)
         .send({ from: account, gas: 0xf4240 });
     }
@@ -47,7 +47,7 @@ export default function useNFT() {
         from: account,
       });
 
-      myContract.methods
+      await myContract.methods
         .burnNFT(_tokenId)
         .send({ from: account, gas: 0xf4240 });
     }
@@ -60,7 +60,7 @@ export default function useNFT() {
           from: account,
         });
 
-        const _myTokens = myContract.methods
+        const _myTokens = await myContract.methods
           .getMyNFTs()
           .call({ from: account });
 
@@ -73,6 +73,7 @@ export default function useNFT() {
               tokenImage: metadata.data.image,
               tokenName: metadata.data.name,
               tokenDesc: metadata.data.description,
+              tokenIsListing: Boolean(i.isListing)
             };
             return token;
           }),
@@ -92,7 +93,7 @@ export default function useNFT() {
           from: account,
         });
 
-        myContract.methods
+        await myContract.methods
           .balanceOf(account)
           .call({ from: account })
           .then((result) => setMyBalance(result));
