@@ -107,7 +107,8 @@ const MintButton = styled.button`
 
   &:disabled {
     cursor: default;
-    background-color: ${colors.bgRed};
+    color: ${colors.textBlack};
+    border: none;
   }
 `;
 

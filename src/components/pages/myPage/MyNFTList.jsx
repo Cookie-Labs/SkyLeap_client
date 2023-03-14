@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MyNFT from './MyNFT';
 import styled from 'styled-components';
+import useNFT from '@hooks/useNFT';
 
 const TokenContainer = styled.div`
   display: grid;
@@ -9,33 +10,24 @@ const TokenContainer = styled.div`
   padding: 30px;
 `;
 
-const MyNFTList = ({ nftList, type }) => {
+const MyNFTList = ({ type }) => {
+  const { myNFTAll, myNFTInProgress, myNFTNotInProgress } = useNFT();
   const [typeNftList, setTypeNftList] = useState([]);
 
   useEffect(() => {
-    let filteredList;
     if (type === 'InProgress') {
-      filteredList = nftList.filter((token) => token.tokenIsListing === true);
-      setTypeNftList(filteredList);
+      setTypeNftList(myNFTInProgress);
     } else if (type === 'NotInProgress') {
-      filteredList = nftList.filter((token) => token.tokenIsListing === false);
-      setTypeNftList(filteredList);
+      setTypeNftList(myNFTNotInProgress);
     } else {
-      setTypeNftList(nftList);
+      setTypeNftList(myNFTAll);
     }
-  }, [nftList, type]);
+  }, [type, myNFTInProgress, myNFTNotInProgress, myNFTAll]);
 
   return (
     <TokenContainer>
       {typeNftList.map((token) => (
-        <MyNFT
-          key={token.tokenId}
-          id={token.tokenId}
-          uri={token.tokenURI}
-          image={token.tokenImage}
-          name={token.tokenName}
-          desc={token.tokenDesc}
-        />
+        <MyNFT key={token.tokenId} token={token} />
       ))}
     </TokenContainer>
   );
