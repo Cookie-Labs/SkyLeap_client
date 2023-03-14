@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import Layout from '@articles/Layout';
-import useNFT from '@hooks/useNFT';
 import PageTitle from '@atoms/PageTitle';
 import MyNFTList from './MyNFTList';
 import LoadingSpinner from '@atoms/LoadingSpinner';
@@ -48,13 +47,12 @@ const LoadingWrapper = styled.div`
 `;
 
 const MyPage = () => {
-  const { myNFTs } = useNFT();
   const [tab, setTab] = useState('All');
   const [isLoading, setIsLoading] = useState(true);
 
   setTimeout(() => {
     setIsLoading(false);
-  }, 3000);
+  }, 2500);
 
   return (
     <Layout page="my-page">
@@ -94,11 +92,11 @@ const MyPage = () => {
             <LoadingSpinner />
           </LoadingWrapper>
         ) : tab === 'All' ? (
-          <MyNFTList nftList={myNFTs} type="All" />
+          <MyNFTList type="All" />
         ) : tab === 'InProgress' ? (
-          <MyNFTList nftList={myNFTs} type="InProgress" />
+          <MyNFTList type="InProgress" />
         ) : tab === 'NotInProgress' ? (
-          <MyNFTList nftList={myNFTs} type="NotInProgress" />
+          <MyNFTList type="NotInProgress" />
         ) : null}
       </TicketsContainer>
     </Layout>

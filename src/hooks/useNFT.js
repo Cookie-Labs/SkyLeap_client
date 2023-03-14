@@ -11,7 +11,11 @@ const MAIN_ADDR = process.env.REACT_APP_CYPRESS_MAIN_ADDR;
 export default function useNFT() {
   const { caver } = useCaver();
   const { account, walletType } = useRecoilValue(userState);
-  const [myNFTs, setMyNFTs] = useState([]);
+
+  const [myNFTAll, setMyNFTAll] = useState([]);
+  const [myNFTInProgress, setMyNFTInProgress] = useState([]);
+  const [myNFTNotInProgress, setMyNFTNotInProgress] = useState([]);
+
   const [myBalance, setMyBalance] = useState(0);
   const client = new NFTStorage({
     token: process.env.REACT_APP_NFTSTORAGE_API,
@@ -79,7 +83,12 @@ export default function useNFT() {
           }),
         );
 
-        setMyNFTs(_tokens);
+
+        const inProgress = _tokens.filter((token) => token.tokenIsListing === true);
+        const notInProgress = _tokens.filter((token) => token.tokenIsListing === false);
+        setMyNFTInProgress(inProgress);
+        setMyNFTNotInProgress(notInProgress);
+        setMyNFTAll(_tokens);
       }
     }
 
@@ -103,5 +112,13 @@ export default function useNFT() {
     getMyNFTBalance();
   }, [account, walletType, caver]);
 
-  return { createTokenURI, mintNFT, burnNFT, myNFTs, myBalance };
+  return {
+    createTokenURI,
+    mintNFT,
+    burnNFT,
+    myNFTAll,
+    myNFTInProgress,
+    myNFTNotInProgress,
+    myBalance,
+  };
 }

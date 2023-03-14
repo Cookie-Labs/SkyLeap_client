@@ -30,13 +30,15 @@ const TokenTitle = styled.span`
     margin: 15px 0;
 `
 
-const MyNFT = ({ id, uri, image, name, desc }) => {
+const MyNFT = ({token}) => {
+  const { tokenId, tokenURI, tokenImage, tokenName, tokenDesc } = token;
+  console.log(tokenURI, tokenDesc);
 
   return (
     <>
       <TokenWrapper>
-        <TokenImage src={image} />
-        <TokenTitle>{name} #{id}</TokenTitle>
+        <TokenImage src={tokenImage} />
+        <TokenTitle>{tokenName} #{tokenId}</TokenTitle>
       </TokenWrapper>
     </>
   );
