@@ -1,3 +1,5 @@
+import React from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
 import GlobalStyle from '@styles/GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
 import '@fontsource/do-hyeon';
@@ -9,19 +11,28 @@ import RealAssetsRafflesPage from '@pages/realAssetsRafflesPage/RealAssetsRaffle
 import CreateNewRafflePage from '@pages/createNewRafflePage/CreateNewRafflePage';
 import MyPage from '@pages/myPage/MyPage';
 import CreateNewNFTPage from '@pages/createNewNFTPage/CreateNewNFTPage';
+import MobilePage from './MobilePage';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<NFTRafflesPage />} />
-        <Route path="/realAssetsRaffles" element={<RealAssetsRafflesPage />} />
-        <Route path="/createRaffle" element={<CreateNewRafflePage />} />
-        <Route path="/my" element={<MyPage />} />
-        <Route path="/createNFT" element={<CreateNewNFTPage />} />
-        <Route path="*" element={<Page404 />} />
-      </Routes>
+      <MobileView>
+        <MobilePage />
+      </MobileView>
+      <BrowserView>
+        <Routes>
+          <Route path="/" element={<NFTRafflesPage />} />
+          <Route
+            path="/realAssetsRaffles"
+            element={<RealAssetsRafflesPage />}
+          />
+          <Route path="/createRaffle" element={<CreateNewRafflePage />} />
+          <Route path="/my" element={<MyPage />} />
+          <Route path="/createNFT" element={<CreateNewNFTPage />} />
+          <Route path="*" element={<Page404 />} />
+        </Routes>
+      </BrowserView>
     </>
   );
 }
