@@ -21,7 +21,7 @@ const ModalContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  min-width: 300px;
   height: auto;
   font-size: 30px;
   font-weight: 700;
@@ -54,14 +54,14 @@ const CloseButton = styled.button`
   cursor: pointer;
   position: relative;
   top: 0px;
-  left: 115px;
+  left: 45%;
 
   &:hover {
     background-color: ${colors.bgWhite}
   }
 `;
 
-const CustomModal = ({ show, toggleModal, styles, children }) => {
+const CustomModal = ({ show, toggleModal, containerStyles, contentStyles, children }) => {
   const handleClickOutside = (e) => {
     if (e.target === e.currentTarget) {
       toggleModal();
@@ -72,9 +72,11 @@ const CustomModal = ({ show, toggleModal, styles, children }) => {
     <ModalContainer
       show={show}
       onMouseDown={handleClickOutside}
-      style={{ ...styles }}
+      style={{ ...containerStyles }}
     >
-      <ModalContent>
+      <ModalContent
+        style={{...contentStyles}}
+      >
         <CloseButton onClick={toggleModal}>
           <BiX size="30" />
         </CloseButton>

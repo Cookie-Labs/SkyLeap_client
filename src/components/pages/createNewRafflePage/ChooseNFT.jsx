@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
 
-const TokenWrapper = styled.div`
-  width: auto;
-  height: 332px;
+const TokenWrapper = styled.button`
+  cursor: pointer;
+  width: 100px;
+  height: 120px;
   border: 1px solid ${colors.bgWhite};
   border-radius: 15px;
   background-color: ${colors.bgSecondary};
@@ -24,19 +25,24 @@ const TokenImage = styled.img`
 `;
 
 const TokenTitle = styled.span`
-    font-size: 20px;
-    font-weight: 800;
-    color: ${colors.textPrimary};
-    margin: 15px 0;
-`
+  font-size: 5px;
+  font-weight: 500;
+  color: ${colors.textPrimary};
+`;
 
-const MyNFT = ({token}) => {
+const ChooseNFT = ({ token, onTokenIdChange, onTokenImageChange, onSelectionComplete }) => {
   // tokenURI, tokenDesc 추가로 들어있음
-  const { tokenId, tokenImage, tokenName} = token;
+  const { tokenId, tokenImage, tokenName } = token;
+
+  const handleClick = () => {
+    onTokenIdChange(tokenId);
+    onTokenImageChange(tokenImage);
+    onSelectionComplete(false);
+  }
 
   return (
     <>
-      <TokenWrapper>
+      <TokenWrapper onClick={handleClick}>
         <TokenImage src={tokenImage} />
         <TokenTitle>
           {tokenName} #{tokenId}
@@ -46,4 +52,4 @@ const MyNFT = ({token}) => {
   );
 };
 
-export default MyNFT;
+export default ChooseNFT;
