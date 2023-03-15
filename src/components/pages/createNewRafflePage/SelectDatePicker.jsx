@@ -45,7 +45,7 @@ const SelectDatePicker = ({ onEndDateChange }) => {
       <BiCalendar />
       {'\u00a0'}
       {value === '' ? 'Please select a date.' : value}
-      {onEndDateChange(value)}
+      {date === null ? null : onEndDateChange(Math.floor(date.getTime() / 1000))}
     </DatePickerButton>
   ));
 
