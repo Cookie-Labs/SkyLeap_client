@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import Layout from '@articles/Layout';
 import PageTitle from '@atoms/PageTitle';
 import MyNFTList from './MyNFTList';
 import LoadingSpinner from '@atoms/LoadingSpinner';
+import { userState } from '@states/userState';
+import { useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
+import { walletConnectError } from '@utils/toastMessage';
 
 const TabNavigation = styled.div`
   display: flex;
@@ -49,6 +53,16 @@ const LoadingWrapper = styled.div`
 const MyPage = () => {
   const [tab, setTab] = useState('All');
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigate = useNavigate();
+  const { account } = useRecoilValue(userState);
+
+  useEffect(() => {
+    if (!account) {
+      walletConnectError();
+      navigate(-1);
+    }
+  }, [account, navigate]);
 
   setTimeout(() => {
     setIsLoading(false);

@@ -3,6 +3,7 @@ import { userState } from '@states/userState';
 import { useRecoilValue } from 'recoil';
 import useCaver from '@hooks/useCaver';
 import { RAFFLE_ABI } from '@hooks/useABI';
+import axios from 'axios';
 
 const RAFFLE_ADDR = process.env.REACT_APP_CYPRESS_RAFFLE_ADDR;
 
@@ -113,15 +114,58 @@ export default function useRaffleLayer1() {
           },
         );
 
-        await myContract.methods
+        const _presentTokens = await myContract.methods
           .getAllRaffleLayer1(true)
           .call({ from: account })
-          .then((result) => setPresentRaffleLayer1(result));
 
-        await myContract.methods
+        const _organizePresentTokens = await Promise.all(
+          _presentTokens.map(async (i) => {
+            let metadata = await axios.get(i.nftURI);
+            let token = {
+              tokenId: Number(i.nftId),
+              tokenURI: i.nftURI,
+              tokenImage: metadata.data.image,
+              tokenName: metadata.data.name,
+              tokenDesc: metadata.data.description,
+              tokenStatus: i.status,
+              tokenOwner: i.owner,
+              tokenEndDate: i.endDate,
+              tokenTicketSupply: i.ticketLimit,
+              tokenTicketPrice: i.ticketPrice,
+              tokenParticipatedList: i.participatedList,
+              tokenWinner: i.winner,
+            };
+            return token;
+          })
+        )
+
+        const _pastTokens = await myContract.methods
           .getAllRaffleLayer1(false)
           .call({ from: account })
-          .then((result) => setPastRaffleLayer1(result));
+
+        const _organizePastTokens = await Promise.all(
+          _pastTokens.map(async (i) => {
+            let metadata = await axios.get(i.nftURI);
+            let token = {
+              tokenId: Number(i.nftId),
+              tokenURI: i.nftURI,
+              tokenImage: metadata.data.image,
+              tokenName: metadata.data.name,
+              tokenDesc: metadata.data.description,
+              tokenStatus: i.status,
+              tokenOwner: i.owner,
+              tokenEndDate: i.endDate,
+              tokenTicketSupply: i.ticketLimit,
+              tokenTicketPrice: i.ticketPrice,
+              tokenParticipatedList: i.participatedList,
+              tokenWinner: i.winner,
+            };
+            return token;
+          }),
+        );
+
+        setPresentRaffleLayer1(_organizePresentTokens);
+        setPastRaffleLayer1(_organizePastTokens);
       }
     }
 

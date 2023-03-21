@@ -48,8 +48,8 @@ const BalanceUnit = styled.span`
 `;
 
 const MyBalance = () => {
-  const { myBalance } = useNFT();
-  const { myTokenBalance } = useRT();
+  const { myNFTBalance } = useNFT();
+  const { myFTBalance } = useRT();
   const { klayBalanceNum } = useCaver();
 
   return (
@@ -57,14 +57,14 @@ const MyBalance = () => {
       <BalanceWrapper>
         <BalanceImage src={nftIcon} />
         <BalanceTextWrapper>
-          <span>{myBalance}</span>
+          <span>{myNFTBalance}</span>
           <BalanceUnit>NFT</BalanceUnit>
         </BalanceTextWrapper>
       </BalanceWrapper>
       <BalanceWrapper>
         <BalanceImage src={rtIcon} />
         <BalanceTextWrapper>
-          <span>{myTokenBalance}</span>
+          <span>{myFTBalance}</span>
           <BalanceUnit>RT</BalanceUnit>
         </BalanceTextWrapper>
       </BalanceWrapper>

@@ -8,6 +8,7 @@ import '@fontsource/roboto-condensed'; // subtitle
 import Page404 from '@pages/page404/Page404';
 import NFTRafflesPage from '@pages/NFTRafflesPage/NFTRafflesPage';
 import RealAssetsRafflesPage from '@pages/realAssetsRafflesPage/RealAssetsRafflesPage';
+import RaffleDetailPage from '@pages/raffleDetailPage/RaffleDetailPage';
 import CreateNewRafflePage from '@pages/createNewRafflePage/CreateNewRafflePage';
 import MyPage from '@pages/myPage/MyPage';
 import CreateNewNFTPage from '@pages/createNewNFTPage/CreateNewNFTPage';
@@ -27,6 +28,7 @@ function App() {
             path="/realAssetsRaffles"
             element={<RealAssetsRafflesPage />}
           />
+          <Route path="/raffleDetail" element={<RaffleDetailPage />} />
           <Route path="/createRaffle" element={<CreateNewRafflePage />} />
           <Route path="/my" element={<MyPage />} />
           <Route path="/createNFT" element={<CreateNewNFTPage />} />

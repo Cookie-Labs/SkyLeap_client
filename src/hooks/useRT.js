@@ -2,31 +2,31 @@ import { useEffect, useState } from 'react';
 import { userState } from '@states/userState';
 import { useRecoilValue } from 'recoil';
 import useCaver from '@hooks/useCaver';
-import { TOKEN_ABI } from '@hooks/useABI';
+import { FT_ABI } from '@hooks/useABI';
 
-const TOKEN_ADDR = process.env.REACT_APP_CYPRESS_TOKEN_ADDR;
+const FT_ADDR = process.env.REACT_APP_CYPRESS_FT_ADDR;
 
 export default function useRT() {
   const { caver } = useCaver();
   const { account, walletType } = useRecoilValue(userState);
-  const [myTokenBalance, setMyTokenBalance] = useState(0);
+  const [myFTBalance, setMyFTBalance] = useState(0);
 
   useEffect(() => {
-    async function getMyTokenBalance() {
+    async function getMyFTBalance() {
       if (walletType === 'Kaikas') {
-        const myContract = await new caver.klay.Contract(TOKEN_ABI, TOKEN_ADDR, {
+        const myContract = await new caver.klay.Contract(FT_ABI, FT_ADDR, {
           from: account,
         });
 
         await myContract.methods
           .balanceOf(account)
           .call({ from: account })
-          .then((result) => setMyTokenBalance(result));
+          .then((result) => setMyFTBalance(result));
       }
     }
 
-    getMyTokenBalance();
+    getMyFTBalance();
   }, [account, walletType, caver]);
 
-  return { myTokenBalance };
+  return { myFTBalance };
 }
