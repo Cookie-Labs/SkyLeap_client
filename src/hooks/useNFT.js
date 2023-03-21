@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { userState } from '@states/userState';
 import { useRecoilValue } from 'recoil';
 import useCaver from '@hooks/useCaver';
-import { MAIN_ABI } from '@hooks/useABI';
+import { NFT_ABI } from '@hooks/useABI';
 import { NFTStorage } from 'nft.storage';
 import axios from 'axios';
 
-const MAIN_ADDR = process.env.REACT_APP_CYPRESS_MAIN_ADDR;
+const NFT_ADDR = process.env.REACT_APP_CYPRESS_NFT_ADDR;
 
 export default function useNFT() {
   const { caver } = useCaver();
@@ -16,7 +16,7 @@ export default function useNFT() {
   const [myNFTInProgress, setMyNFTInProgress] = useState([]);
   const [myNFTNotInProgress, setMyNFTNotInProgress] = useState([]);
 
-  const [myBalance, setMyBalance] = useState(0);
+  const [myNFTBalance, setMyNFTBalance] = useState(0);
   const client = new NFTStorage({
     token: process.env.REACT_APP_NFTSTORAGE_API,
   });
@@ -35,7 +35,7 @@ export default function useNFT() {
 
   async function mintNFT(_tokenURI) {
     if (walletType === 'Kaikas') {
-      const myContract = await new caver.klay.Contract(MAIN_ABI, MAIN_ADDR, {
+      const myContract = await new caver.klay.Contract(NFT_ABI, NFT_ADDR, {
         from: account,
       });
 
@@ -47,7 +47,7 @@ export default function useNFT() {
 
   async function burnNFT(_tokenId) {
     if (walletType === 'Kaikas') {
-      const myContract = await new caver.klay.Contract(MAIN_ABI, MAIN_ADDR, {
+      const myContract = await new caver.klay.Contract(NFT_ABI, NFT_ADDR, {
         from: account,
       });
 
@@ -60,7 +60,7 @@ export default function useNFT() {
   useEffect(() => {
     async function getMyNFTList() {
       if (walletType === 'Kaikas') {
-        const myContract = await new caver.klay.Contract(MAIN_ABI, MAIN_ADDR, {
+        const myContract = await new caver.klay.Contract(NFT_ABI, NFT_ADDR, {
           from: account,
         });
 
@@ -98,14 +98,14 @@ export default function useNFT() {
   useEffect(() => {
     async function getMyNFTBalance() {
       if (walletType === 'Kaikas') {
-        const myContract = await new caver.klay.Contract(MAIN_ABI, MAIN_ADDR, {
+        const myContract = await new caver.klay.Contract(NFT_ABI, NFT_ADDR, {
           from: account,
         });
 
         await myContract.methods
           .balanceOf(account)
           .call({ from: account })
-          .then((result) => setMyBalance(result));
+          .then((result) => setMyNFTBalance(result));
       }
     }
 
@@ -119,6 +119,6 @@ export default function useNFT() {
     myNFTAll,
     myNFTInProgress,
     myNFTNotInProgress,
-    myBalance,
+    myNFTBalance,
   };
 }

@@ -17,6 +17,10 @@ import {
 } from 'react-icons/bi';
 import KlaytnIcon from '@assets/image/Klaytn_Icon.png';
 import TicketIcon from '@assets/image/Ticket_Icon.svg';
+import { userState } from '@states/userState';
+import { useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
+import { walletConnectError } from '@utils/toastMessage';
 
 const Container = styled.div`
   width: 100%;
@@ -215,14 +219,15 @@ const CreateNewRafflePage = () => {
   const [ticketSupply, setTicketSupply] = useState(0);
   const [ticketPrice, setTicketPrice] = useState(0);
 
-  console.log(tokenId);
-  console.log(typeof tokenId);
-  console.log(endDate);
-  console.log(typeof endDate);
-  console.log(ticketSupply);
-  console.log(typeof ticketSupply);
-  console.log(ticketPrice);
-  console.log(typeof ticketPrice);
+  const navigate = useNavigate();
+  const { account } = useRecoilValue(userState);
+
+  useEffect(() => {
+    if (!account) {
+      walletConnectError();
+      navigate(-1);
+    }
+  }, [account, navigate]);
 
   useEffect(() => {
     setCurrentTime(new Date());
