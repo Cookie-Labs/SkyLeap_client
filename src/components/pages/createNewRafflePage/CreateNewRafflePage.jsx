@@ -21,6 +21,7 @@ import { userState } from '@states/userState';
 import { useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { walletConnectError } from '@utils/toastMessage';
+import LoadingSpinner from '@atoms/LoadingSpinner';
 
 const Container = styled.div`
   width: 100%;
@@ -206,6 +207,15 @@ const ModalContent = styled.div`
   gap: 15px;
 `;
 
+const BottomWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 900;
+`;
+
 const CreateNewRafflePage = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -221,6 +231,21 @@ const CreateNewRafflePage = () => {
 
   const navigate = useNavigate();
   const { account } = useRecoilValue(userState);
+
+  const [isRaffle, setIsRaffle] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const createRaffle = async () => {
+    setIsRaffle(false);
+    setIsLoading(true);
+    try {
+      await setRaffleLayer1(tokenId, endDate, ticketSupply, ticketPrice);
+    } catch (err) {
+      console.log(err);
+    }
+    setIsRaffle(true);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     if (!account) {
@@ -354,14 +379,20 @@ const CreateNewRafflePage = () => {
           </TextInputWrapper>
         </Wrapper>
       </Container>
-      <CreateButton
-        onClick={() => {
-          setRaffleLayer1(tokenId, endDate, ticketSupply, ticketPrice);
-        }}
-        disabled={!tokenId || !endDate || !ticketSupply || !ticketPrice}
-      >
-        Create Raffle
-      </CreateButton>
+      <BottomWrapper>
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : isRaffle ? (
+          <span>Successfully created!</span>
+        ) : (
+          <CreateButton
+            onClick={createRaffle}
+            disabled={!tokenId || !endDate || !ticketSupply || !ticketPrice}
+          >
+            Create Raffle
+          </CreateButton>
+        )}
+      </BottomWrapper>
 
       <CustomModal show={showMyNFTs} toggleModal={() => setShowMyNFTs(false)}>
         <ModalTitle>Choose NFT</ModalTitle>

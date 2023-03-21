@@ -122,7 +122,6 @@ const CreateNewNFTPage = () => {
   const [isMint, setIsMint] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // TODO: 3가지가 모두 적히지 않으면 버튼 블락
   const createNFT = async () => {
     setIsMint(false);
     setIsLoading(true);
@@ -173,14 +172,9 @@ const CreateNewNFTPage = () => {
           {isLoading ? (
             <LoadingSpinner />
           ) : isMint ? (
-            <span>Complete!</span>
+            <span>Successfully created!</span>
           ) : (
-            <MintButton
-              onClick={(e) => {
-                createNFT();
-              }}
-              disabled={!nftImage || !nftName}
-            >
+            <MintButton onClick={createNFT} disabled={!nftImage || !nftName}>
               Create NFT
             </MintButton>
           )}

@@ -3,6 +3,7 @@ import { userState } from '@states/userState';
 import { useRecoilValue } from 'recoil';
 import useCaver from '@hooks/useCaver';
 import { RAFFLE_ABI } from '@hooks/useABI';
+import axios from 'axios';
 
 const RAFFLE_ADDR = process.env.REACT_APP_CYPRESS_RAFFLE_ADDR;
 
@@ -104,25 +105,66 @@ export default function useRaffleLayer2() {
 
   useEffect(() => {
     async function getAllRaffleLayer2() {
-      if (walletType === 'Kaikas') {
         const myContract = await new caver.klay.Contract(
           RAFFLE_ABI,
           RAFFLE_ADDR,
           {
-            from: account,
+            from: process.env.REACT_APP_CONTRACT_OWNER_ADDR,
           },
         );
 
-        await myContract.methods
+        const _presentTokens = await myContract.methods
           .getAllRaffleLayer2(true)
-          .call({ from: account })
-          .then((result) => setPresentRaffleLayer2(result));
+          .call({ from: process.env.REACT_APP_CONTRACT_OWNER_ADDR });
 
-        await myContract.methods
+        const _organizePresentTokens = await Promise.all(
+          _presentTokens.map(async (i) => {
+            let metadata = await axios.get(i.nftURI);
+            let token = {
+              tokenId: Number(i.nftId),
+              tokenURI: i.nftURI,
+              tokenImage: metadata.data.image,
+              tokenName: metadata.data.name,
+              tokenDesc: metadata.data.description,
+              tokenStatus: i.status,
+              tokenOwner: i.owner,
+              tokenEndDate: i.endDate,
+              tokenTicketSupply: i.ticketLimit,
+              tokenTicketPrice: i.ticketPrice,
+              tokenParticipatedList: i.participatedList,
+              tokenWinner: i.winner,
+            };
+            return token;
+          }),
+        );
+
+        const _pastTokens = await myContract.methods
           .getAllRaffleLayer2(false)
-          .call({ from: account })
-          .then((result) => setPastRaffleLayer2(result));
-      }
+          .call({ from: process.env.REACT_APP_CONTRACT_OWNER_ADDR });
+
+        const _organizePastTokens = await Promise.all(
+          _pastTokens.map(async (i) => {
+            let metadata = await axios.get(i.nftURI);
+            let token = {
+              tokenId: Number(i.nftId),
+              tokenURI: i.nftURI,
+              tokenImage: metadata.data.image,
+              tokenName: metadata.data.name,
+              tokenDesc: metadata.data.description,
+              tokenStatus: i.status,
+              tokenOwner: i.owner,
+              tokenEndDate: i.endDate,
+              tokenTicketSupply: i.ticketLimit,
+              tokenTicketPrice: i.ticketPrice,
+              tokenParticipatedList: i.participatedList,
+              tokenWinner: i.winner,
+            };
+            return token;
+          }),
+        );
+
+        setPresentRaffleLayer2(_organizePresentTokens);
+        setPastRaffleLayer2(_organizePastTokens);
     }
 
     getAllRaffleLayer2();
