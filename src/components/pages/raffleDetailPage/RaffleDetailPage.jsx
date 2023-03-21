@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { userState } from '@states/userState';
-import { useRecoilValue } from 'recoil';
+// import { userState } from '@states/userState';
+// import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import Layout from '@articles/Layout';
-import useRaffleLayer1 from '@hooks/useRaffleLayer1';
+// import useRaffleLayer1 from '@hooks/useRaffleLayer1';
 
 const Container = styled.div`
   width: 100%;
@@ -49,10 +49,10 @@ const TokenTitle = styled.div`
 const RaffleDetailPage = () => {
   const location = useLocation();
   const { tokenInfo } = location.state;
-  const [numberOfTickets, setNumberOfTickets] = useState(0);
-  const { joinRaffleLayer1 } = useRaffleLayer1;
+  // const [numberOfTickets, setNumberOfTickets] = useState(0);
+  // const { joinRaffleLayer1 } = useRaffleLayer1;
 
-  const { account } = useRecoilValue(userState);
+  // const { account } = useRecoilValue(userState);
 
   console.log(tokenInfo);
 
