@@ -68,6 +68,11 @@ const ButtonWrapper = styled(Link)`
   }
 `;
 
+const WalletButtonWrapper = styled.div`
+  height: 60px;
+  width: 150px;
+`
+
 const Header = ({ page }) => {
   return (
     <Container>
@@ -96,8 +101,10 @@ const Header = ({ page }) => {
             <br /> RAFFLES
           </span>
         </ButtonWrapper>
-        <ConnectWallet/>
-        <MyBalance/>
+        <WalletButtonWrapper>
+          <ConnectWallet />
+        </WalletButtonWrapper>
+        <MyBalance />
       </ButtonsContainer>
     </Container>
   );

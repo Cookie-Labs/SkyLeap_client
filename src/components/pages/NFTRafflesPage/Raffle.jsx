@@ -64,7 +64,7 @@ const TicketInfo = styled.div`
   height: 7%;
   font-size: 17px;
   font-weight: 500;
-  color: ${colors.textSecondary};
+  color: ${colors.textPrimary};
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -76,16 +76,17 @@ const ViewRaffleButton = styled.button`
   height: 8%;
   font-size: 20px;
   font-weight: 700;
-  color: ${colors.textPrimary};
+  color: ${colors.textBlack};
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   border: 1px solid ${colors.bgWhite};
+  background-color: ${colors.primary40};
   cursor: pointer;
 
   &:hover {
-    background-color: ${colors.bgWhite};
+    background-color: ${colors.primary80};
     transition: 0.3s;
   }
 `;
