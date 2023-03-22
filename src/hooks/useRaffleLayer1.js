@@ -36,7 +36,11 @@ export default function useRaffleLayer1() {
     }
   }
 
-  async function joinRaffleLayer1(_tokenId, _numberOfTickets) {
+  async function joinRaffleLayer1(
+    _tokenId,
+    _numberOfTickets,
+    _tokenTicketPrice,
+  ) {
     if (walletType === 'Kaikas') {
       const myContract = await new caver.klay.Contract(
         RAFFLE_ABI,
@@ -46,9 +50,11 @@ export default function useRaffleLayer1() {
         },
       );
 
+      const _tokenValue = String(_numberOfTickets * _tokenTicketPrice);
+
       await myContract.methods
         .joinRaffleLayer1(_tokenId, _numberOfTickets)
-        .send({ from: account, gas: 0xf4240 });
+        .send({ from: account, gas: 0xf4240, value: _tokenValue });
     }
   }
 
@@ -63,9 +69,11 @@ export default function useRaffleLayer1() {
         },
       );
 
+      const _forRandomNumValue = String(0.5 * 10 ** 18);
+
       await myContract.methods
         .drawRaffleLayer1(_tokenId)
-        .send({ from: account, gas: 0xf4240 });
+        .send({ from: account, gas: 0xf4240, value: _forRandomNumValue });
     }
   }
 
