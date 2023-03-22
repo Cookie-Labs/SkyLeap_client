@@ -21,12 +21,13 @@ export default function useNFT() {
     token: process.env.REACT_APP_NFTSTORAGE_API,
   });
 
-  async function createTokenURI(_nftImage, _nftName, _nftDesc) {
+  async function createTokenURI(_nftImage, _nftName, _nftDesc, _nftExternalLink) {
     const fileCid = await client.storeBlob(new Blob([_nftImage]));
     const obj = {
-      image: 'https://ipfs.io/ipfs/' + fileCid,
       name: _nftName,
       description: _nftDesc,
+      image: 'https://ipfs.io/ipfs/' + fileCid,
+      external_link: _nftExternalLink,
     };
     const metadataCid = await client.storeBlob(new Blob([JSON.stringify(obj)]));
 

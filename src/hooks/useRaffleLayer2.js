@@ -36,7 +36,11 @@ export default function useRaffleLayer2() {
     }
   }
 
-  async function joinRaffleLayer2(_tokenId, _numberOfTickets) {
+  async function joinRaffleLayer2(
+    _tokenId,
+    _numberOfTickets,
+    _tokenTicketPrice,
+  ) {
     if (walletType === 'Kaikas') {
       const myContract = await new caver.klay.Contract(
         RAFFLE_ABI,
@@ -46,9 +50,11 @@ export default function useRaffleLayer2() {
         },
       );
 
+      const _tokenValue = String(_numberOfTickets * _tokenTicketPrice);
+
       await myContract.methods
         .joinRaffleLayer2(_tokenId, _numberOfTickets)
-        .send({ from: account, gas: 0xf4240 });
+        .send({ from: account, gas: 0xf4240, value: _tokenValue });
     }
   }
 
@@ -63,9 +69,11 @@ export default function useRaffleLayer2() {
         },
       );
 
+      const _forRandomNumValue = String(0.5 * 10 ** 18);
+
       await myContract.methods
         .drawRaffleLayer2(_tokenId)
-        .send({ from: account, gas: 0xf4240 });
+        .send({ from: account, gas: 0xf4240, value: _forRandomNumValue });
     }
   }
 
@@ -105,66 +113,66 @@ export default function useRaffleLayer2() {
 
   useEffect(() => {
     async function getAllRaffleLayer2() {
-        const myContract = await new caver.klay.Contract(
-          RAFFLE_ABI,
-          RAFFLE_ADDR,
-          {
-            from: process.env.REACT_APP_CONTRACT_OWNER_ADDR,
-          },
-        );
+      const myContract = await new caver.klay.Contract(
+        RAFFLE_ABI,
+        RAFFLE_ADDR,
+        {
+          from: process.env.REACT_APP_CONTRACT_OWNER_ADDR,
+        },
+      );
 
-        const _presentTokens = await myContract.methods
-          .getAllRaffleLayer2(true)
-          .call({ from: process.env.REACT_APP_CONTRACT_OWNER_ADDR });
+      const _presentTokens = await myContract.methods
+        .getAllRaffleLayer2(true)
+        .call({ from: process.env.REACT_APP_CONTRACT_OWNER_ADDR });
 
-        const _organizePresentTokens = await Promise.all(
-          _presentTokens.map(async (i) => {
-            let metadata = await axios.get(i.nftURI);
-            let token = {
-              tokenId: Number(i.nftId),
-              tokenURI: i.nftURI,
-              tokenImage: metadata.data.image,
-              tokenName: metadata.data.name,
-              tokenDesc: metadata.data.description,
-              tokenStatus: i.status,
-              tokenOwner: i.owner,
-              tokenEndDate: i.endDate,
-              tokenTicketSupply: i.ticketLimit,
-              tokenTicketPrice: i.ticketPrice,
-              tokenParticipatedList: i.participatedList,
-              tokenWinner: i.winner,
-            };
-            return token;
-          }),
-        );
+      const _organizePresentTokens = await Promise.all(
+        _presentTokens.map(async (i) => {
+          let metadata = await axios.get(i.nftURI);
+          let token = {
+            tokenId: Number(i.nftId),
+            tokenURI: i.nftURI,
+            tokenImage: metadata.data.image,
+            tokenName: metadata.data.name,
+            tokenDesc: metadata.data.description,
+            tokenStatus: i.status,
+            tokenOwner: i.owner,
+            tokenEndDate: i.endDate,
+            tokenTicketSupply: i.ticketLimit,
+            tokenTicketPrice: i.ticketPrice,
+            tokenParticipatedList: i.participatedList,
+            tokenWinner: i.winner,
+          };
+          return token;
+        }),
+      );
 
-        const _pastTokens = await myContract.methods
-          .getAllRaffleLayer2(false)
-          .call({ from: process.env.REACT_APP_CONTRACT_OWNER_ADDR });
+      const _pastTokens = await myContract.methods
+        .getAllRaffleLayer2(false)
+        .call({ from: process.env.REACT_APP_CONTRACT_OWNER_ADDR });
 
-        const _organizePastTokens = await Promise.all(
-          _pastTokens.map(async (i) => {
-            let metadata = await axios.get(i.nftURI);
-            let token = {
-              tokenId: Number(i.nftId),
-              tokenURI: i.nftURI,
-              tokenImage: metadata.data.image,
-              tokenName: metadata.data.name,
-              tokenDesc: metadata.data.description,
-              tokenStatus: i.status,
-              tokenOwner: i.owner,
-              tokenEndDate: i.endDate,
-              tokenTicketSupply: i.ticketLimit,
-              tokenTicketPrice: i.ticketPrice,
-              tokenParticipatedList: i.participatedList,
-              tokenWinner: i.winner,
-            };
-            return token;
-          }),
-        );
+      const _organizePastTokens = await Promise.all(
+        _pastTokens.map(async (i) => {
+          let metadata = await axios.get(i.nftURI);
+          let token = {
+            tokenId: Number(i.nftId),
+            tokenURI: i.nftURI,
+            tokenImage: metadata.data.image,
+            tokenName: metadata.data.name,
+            tokenDesc: metadata.data.description,
+            tokenStatus: i.status,
+            tokenOwner: i.owner,
+            tokenEndDate: i.endDate,
+            tokenTicketSupply: i.ticketLimit,
+            tokenTicketPrice: i.ticketPrice,
+            tokenParticipatedList: i.participatedList,
+            tokenWinner: i.winner,
+          };
+          return token;
+        }),
+      );
 
-        setPresentRaffleLayer2(_organizePresentTokens);
-        setPastRaffleLayer2(_organizePastTokens);
+      setPresentRaffleLayer2(_organizePresentTokens);
+      setPastRaffleLayer2(_organizePastTokens);
     }
 
     getAllRaffleLayer2();
