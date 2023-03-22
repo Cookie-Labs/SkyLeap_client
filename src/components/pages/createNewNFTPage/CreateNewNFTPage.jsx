@@ -22,6 +22,11 @@ const BoxTitle = styled.span`
   padding: 5px 0;
 `;
 
+const RequiredWrapper = styled.span`
+  color: ${colors.textTertiary};
+  margin-bottom: 10px;
+`;
+
 const LabelBox = styled.label`
   display: flex;
   align-items: center;
@@ -34,7 +39,7 @@ const LabelBox = styled.label`
   line-height: normal;
   vertical-align: middle;
   background-color: ${colors.bgTertiary};
-  border: 1px solid ${colors.bgWhite};
+  border: 2px dashed ${colors.bgWhite};
   border-radius: 12px;
   cursor: pointer;
   margin-bottom: 30px;
@@ -118,6 +123,7 @@ const CreateNewNFTPage = () => {
   const [nftImage, setNftImage] = useState(null);
   const [nftName, setNftName] = useState('');
   const [nftDesc, setNftDesc] = useState('');
+  const [nftExternalLink, setnftExternalLink] = useState('');
 
   const [isMint, setIsMint] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -126,7 +132,12 @@ const CreateNewNFTPage = () => {
     setIsMint(false);
     setIsLoading(true);
     try {
-      const tokenURI = await createTokenURI(nftImage, nftName, nftDesc);
+      const tokenURI = await createTokenURI(
+        nftImage,
+        nftName,
+        nftDesc,
+        nftExternalLink,
+      );
       await mintNFT(tokenURI);
     } catch (err) {
       console.log(err);
@@ -138,8 +149,9 @@ const CreateNewNFTPage = () => {
   return (
     <Layout page="create-new-nft-page">
       <PageTitle>CREATE NEW NFT</PageTitle>
+      <RequiredWrapper>✴ Required fields</RequiredWrapper>
       <ContentContainer>
-        <BoxTitle>* IMAGE</BoxTitle>
+        <BoxTitle>✴ IMAGE</BoxTitle>
         <LabelBox for="fileInput">
           {imageFile ? (
             <ImgBox for="fileInput" src={imageFile} alt="preview image" />
@@ -156,7 +168,7 @@ const CreateNewNFTPage = () => {
             setImageFile(URL.createObjectURL(e.target.files[0]));
           }}
         />
-        <BoxTitle>* NAME</BoxTitle>
+        <BoxTitle>✴ NAME</BoxTitle>
         <TextBox
           onChange={(e) => {
             setNftName(e.target.value);
@@ -166,6 +178,12 @@ const CreateNewNFTPage = () => {
         <TextBox
           onChange={(e) => {
             setNftDesc(e.target.value);
+          }}
+        />
+        <BoxTitle>EXTERNAL LINK</BoxTitle>
+        <TextBox
+          onChange={(e) => {
+            setnftExternalLink(e.target.value);
           }}
         />
         <BottomWrapper>

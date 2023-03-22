@@ -72,8 +72,8 @@ const borderGradient = keyframes`
 `;
 
 const WalletButton = styled.button`
-  height: 60px;
-  width: 150px;
+  width: 100%;
+  min-height: 60px;
   padding: 5px;
   font-size: 15px;
   display: flex;
