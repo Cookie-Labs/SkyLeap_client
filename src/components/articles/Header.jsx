@@ -18,7 +18,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: ${APP_MAX_W}px;
+  width: ${APP_MAX_W};
   height: ${APP_HEADER_H}px;
   background-color: ${colors.bgPrimary};
   border-bottom: solid 1px ${colors.bgWhite};

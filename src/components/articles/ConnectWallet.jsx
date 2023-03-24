@@ -10,6 +10,7 @@ import { userAccount, userWalletType, userNetworkId } from '@states/userState';
 import CustomModal from '@articles/CustomModal';
 import { networks } from '@constants/networkInfo';
 import { useNavigate } from 'react-router-dom';
+// import useCaver from '@hooks/useCaver';
 
 const Container = styled.div`
   display: flex;
@@ -151,6 +152,7 @@ const ConnectWallet = () => {
   const setNetworkId = useSetRecoilState(userNetworkId);
   const klaytnNetworkId = networks['cypress'].chainId;
   const navigate = useNavigate();
+  // const caver = useCaver();
 
   const loginWithKaikas = async () => {
     if (!kaikas) {
@@ -176,6 +178,9 @@ const ConnectWallet = () => {
       setNetworkId(chainId);
       localStorage.setItem('_user', accounts[0]);
       localStorage.setItem('_wallet', 'Kaikas');
+
+      // const signMessage = `Rafflix\n 'Your address: ${accounts[0]}'`;
+      // await caver.klay.sign(signMessage);
 
       if (chainId !== klaytnNetworkId) {
         try {
