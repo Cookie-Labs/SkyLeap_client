@@ -105,13 +105,9 @@ const MyPage = () => {
           <LoadingWrapper>
             <LoadingSpinner />
           </LoadingWrapper>
-        ) : tab === 'All' ? (
-          <MyNFTList type="All" />
-        ) : tab === 'InProgress' ? (
-          <MyNFTList type="InProgress" />
-        ) : tab === 'NotInProgress' ? (
-          <MyNFTList type="NotInProgress" />
-        ) : null}
+        ) : (
+          <MyNFTList type={tab} />
+        )}
       </TicketsContainer>
     </Layout>
   );

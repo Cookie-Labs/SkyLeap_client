@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import rafflixLogo from '@assets/logo/Rafflix_logo.svg';
-import { FOOTER_H, FOOTER_MT } from '@constants/styleConst';
+import { FOOTER_W, FOOTER_H, FOOTER_MT } from '@constants/styleConst';
 import { Link } from 'react-router-dom';
 import { BsTwitter, BsTelegram, BsDiscord } from 'react-icons/bs';
 
 const Container = styled.div`
-  width: 100%;
+  width: ${FOOTER_W};
   height: ${FOOTER_H}px;
   padding: 20px;
   background-color: ${colors.bgBlack};

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import Layout from '@articles/Layout';
@@ -19,7 +19,7 @@ const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 `;
 
 const ButtonsWrapper = styled.div`
@@ -139,11 +139,9 @@ const NFTRafflesPage = () => {
           <LoadingWrapper>
             <LoadingSpinner />
           </LoadingWrapper>
-        ) : tab === 'Present' ? (
-          <RaffleList type="Present" />
-        ) : tab === 'Past' ? (
-          <RaffleList type="Past" />
-        ) : null}
+        ) : (
+          <RaffleList type={tab} />
+        )}
       </RafflesContainer>
     </Layout>
   );
