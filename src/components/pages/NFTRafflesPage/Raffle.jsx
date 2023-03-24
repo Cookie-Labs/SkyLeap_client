@@ -93,8 +93,6 @@ const ViewRaffleButton = styled.button`
 
 const Raffle = ({ token }) => {
   const navigate = useNavigate();
-  const [adjustedEndDate, setAdjustedEndDate] = useState('');
-
   const {
     tokenId,
     tokenImage,
@@ -105,20 +103,33 @@ const Raffle = ({ token }) => {
     tokenParticipatedList,
   } = token;
 
-  useEffect(() => {
-    const RemainingMilisec = tokenEndDate * 1000 - Date.now();
-    if (RemainingMilisec > 0) {
-      const RemainingMin = Math.floor((RemainingMilisec / (1000 * 60)) % 60);
-      const RemainingHour = Math.floor(
-        (RemainingMilisec / (1000 * 60 * 60)) % 24,
-      );
-      const RemainingDay = Math.floor(RemainingMilisec / (1000 * 60 * 60 * 24));
+  const [adjustedEndMilisec, setAdjustedEndMilisec] = useState(
+    tokenEndDate * 1000 - Date.now(),
+  );
+  const [adjustedEndDate, setAdjustedEndDate] = useState('');
 
-      setAdjustedEndDate(`${RemainingDay}D ${RemainingHour}H ${RemainingMin}M`);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAdjustedEndMilisec(tokenEndDate * 1000 - Date.now());
+    }, 60000);
+
+    if (adjustedEndMilisec > 0) {
+      const RemainingMin = Math.floor((adjustedEndMilisec / (1000 * 60)) % 60);
+      const RemainingHour = Math.floor(
+        (adjustedEndMilisec / (1000 * 60 * 60)) % 24,
+      );
+      const RemainingDay = Math.floor(
+        adjustedEndMilisec / (1000 * 60 * 60 * 24),
+      );
+      setAdjustedEndDate(
+        `${RemainingDay}D ${RemainingHour}H ${RemainingMin}M`,
+      );
     } else {
-      setAdjustedEndDate('0D 0H 0M');
+      setAdjustedEndDate('ENDED');
     }
-  }, [tokenEndDate]);
+
+    return () => clearInterval(timer);
+  }, [tokenEndDate, adjustedEndMilisec]);
 
   return (
     <>
