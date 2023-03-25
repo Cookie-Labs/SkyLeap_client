@@ -12,6 +12,8 @@ import {
 } from 'react-icons/bi';
 import LoadingSpinner from '@atoms/LoadingSpinner';
 import RaffleList from './RaffleList';
+import useRaffleLayer1 from '@hooks/useRaffleLayer1';
+
 
 const ButtonsContainer = styled.div`
   width: 100%;
@@ -86,6 +88,7 @@ const LoadingWrapper = styled.div`
 const NFTRafflesPage = () => {
   const [tab, setTab] = useState('Present');
   const [isLoading, setIsLoading] = useState(true);
+  const { presentRaffleLayer1, pastRaffleLayer1 } = useRaffleLayer1();
 
   setTimeout(() => {
     setIsLoading(false);
@@ -128,7 +131,7 @@ const NFTRafflesPage = () => {
           <RightButton>
             <BiFilterAlt />
             {'\u00a0'}
-            Fliters / Sort
+            Filters / Sort
             {'\u00a0'}
             <BiSort />
           </RightButton>
@@ -139,9 +142,11 @@ const NFTRafflesPage = () => {
           <LoadingWrapper>
             <LoadingSpinner />
           </LoadingWrapper>
-        ) : (
-          <RaffleList type={tab} />
-        )}
+        ) : tab === "Present" ? (
+          <RaffleList tokenList={presentRaffleLayer1} />
+        ) : tab === "Past" ? (
+          <RaffleList tokenList={pastRaffleLayer1} />
+        ) : null}
       </RafflesContainer>
     </Layout>
   );

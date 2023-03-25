@@ -9,6 +9,7 @@ import { userState } from '@states/userState';
 import { useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { walletConnectError } from '@utils/toastMessage';
+import useNFT from '@hooks/useNFT';
 
 const TabNavigation = styled.div`
   display: flex;
@@ -56,6 +57,8 @@ const MyPage = () => {
 
   const navigate = useNavigate();
   const { account } = useRecoilValue(userState);
+
+  const { myNFTAll, myNFTInProgress, myNFTNotInProgress } = useNFT();
 
   useEffect(() => {
     if (!account) {
@@ -105,9 +108,13 @@ const MyPage = () => {
           <LoadingWrapper>
             <LoadingSpinner />
           </LoadingWrapper>
-        ) : (
-          <MyNFTList type={tab} />
-        )}
+        ) : tab === "All" ? (
+          <MyNFTList tokenList={myNFTAll} />
+        ) : tab === "InProgress" ? (
+          <MyNFTList tokenList={myNFTInProgress}/>
+        ) : tab === "NotInProgress" ? (
+          <MyNFTList tokenList={myNFTNotInProgress}/>
+        ) : null}
       </TicketsContainer>
     </Layout>
   );
