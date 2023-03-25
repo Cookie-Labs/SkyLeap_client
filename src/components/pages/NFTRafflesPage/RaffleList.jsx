@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import useRaffleLayer1 from '@hooks/useRaffleLayer1';
 import Raffle from './Raffle';
 
 const RafflesContainer = styled.div`
@@ -10,25 +9,28 @@ const RafflesContainer = styled.div`
   padding: 30px;
 `;
 
-const RaffleList = ({ type }) => {
-  const { presentRaffleLayer1, pastRaffleLayer1 } = useRaffleLayer1();
-  const [typeRaffleList, setTypeRaffleList] = useState([]);
+const NoDataWrapper = styled.div`
+  width: 100%;
+  height: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+`;
 
-  useEffect(() => {
-    if (type === 'Present') {
-      setTypeRaffleList(presentRaffleLayer1);
-    } else if (type === 'Past') {
-      setTypeRaffleList(pastRaffleLayer1);
-    }
-  }, [type, presentRaffleLayer1, pastRaffleLayer1]);
-
-  return (
-    <RafflesContainer>
-      {typeRaffleList.map((token) => (
-        <Raffle key={token.tokenId} token={token} />
-      ))}
-    </RafflesContainer>
-  );
+const RaffleList = ({ tokenList }) => {
+  if (tokenList.length !== 0) {
+    return (
+      <RafflesContainer>
+        {tokenList.map((token) => (
+          <Raffle key={token.tokenId} token={token} />
+        ))}
+      </RafflesContainer>
+    );
+  } else {
+    return <NoDataWrapper>There are no raffles.</NoDataWrapper>;
+  }
 };
 
 export default RaffleList;
