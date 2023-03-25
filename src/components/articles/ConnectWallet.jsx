@@ -156,9 +156,10 @@ const ConnectWallet = () => {
 
   const loginWithKaikas = async () => {
     if (!kaikas) {
-      toast.error('Kaikas installation is required.', {
-        position: toast.POSITION.TOP_CENTER,
-      });
+      toast.error('Kaikas installation is required.');
+      window.open(
+        'https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi',
+      );
       return;
     }
 
@@ -265,11 +266,19 @@ const ConnectWallet = () => {
         toggleModal={() => setShowDisconnectWallet(false)}
       >
         <ModalTitle>{formatAddress(account)}</ModalTitle>
-        <SelectButton onClick={() => {navigate('/my');}}>
+        <SelectButton
+          onClick={() => {
+            navigate('/my');
+          }}
+        >
           <BiUser size="30" />
           My Page
         </SelectButton>
-        <SelectButton onClick={() => {navigate('/createNFT');}}>
+        <SelectButton
+          onClick={() => {
+            navigate('/createNFT');
+          }}
+        >
           <BiPencil size="30" />
           Create
         </SelectButton>
