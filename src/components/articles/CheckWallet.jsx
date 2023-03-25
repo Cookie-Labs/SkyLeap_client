@@ -15,12 +15,16 @@ const CheckWallet = () => {
   const navigate = useNavigate();
   const klaytnNetwork = networks['cypress'].chainId;
 
+  useEffect(() => {
+    if (!kaikas) {
+      toast.error('Kaikas installation is required.', { autoClose: 60000 });
+      return;
+    }
+  }, []);
+
   // Kaikas 잠금 동작 인식 + 계정 변경 인식
   useEffect(() => {
     if (!kaikas) {
-      toast.error('Kaikas installation is required.', {
-        position: toast.POSITION.TOP_CENTER,
-      });
       return;
     }
 
@@ -68,13 +72,9 @@ const CheckWallet = () => {
     };
   }, [account, setAccount, setWalletType, navigate]);
 
-  
   // Kaikas 체인 변경 시 로그아웃
   useEffect(() => {
     if (!kaikas) {
-      toast.error('Kaikas installation is required.', {
-        position: toast.POSITION.TOP_CENTER,
-      });
       return;
     }
 
