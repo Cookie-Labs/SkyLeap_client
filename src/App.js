@@ -13,6 +13,10 @@ import RealAssetsDetailPage from '@pages/realAssetsDetailPage/RealAssetsDetailPa
 import CreateNewRafflePage from '@pages/createNewRafflePage/CreateNewRafflePage';
 import MyPage from '@pages/myPage/MyPage';
 import CreateNewNFTPage from '@pages/createNewNFTPage/CreateNewNFTPage';
+import AdminPage from '@pages/adminPage/AdminPage';
+import OverviewPage from '@pages/adminPage/OverviewPage';
+import TransactionPage from '@pages/adminPage/TransactionPage';
+import Admin404Page from '@pages/adminPage/Admin404Page';
 import MobilePage from './MobilePage';
 
 function App() {
@@ -35,6 +39,14 @@ function App() {
           <Route path="/my" element={<MyPage />} />
           <Route path="/createNFT" element={<CreateNewNFTPage />} />
           <Route path="*" element={<Page404 />} />
+          <Route
+            path="/D72915FCA91862FA6B516F78B46C56864B64784696E79586502C18F6712F61CD"
+            element={<AdminPage />}
+          >
+            <Route path="overview" element={<OverviewPage />} />
+            <Route path="transaction" element={<TransactionPage />} />
+            <Route path="*" element={<Admin404Page />} />
+          </Route>
         </Routes>
       </BrowserView>
     </>

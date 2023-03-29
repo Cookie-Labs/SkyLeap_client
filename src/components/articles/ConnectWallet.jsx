@@ -4,6 +4,7 @@ import * as colors from '@styles/colors';
 import { toast } from 'react-toastify';
 import kaikasImage from '@assets/image/Kaikas_Icon.png';
 import { BiUser, BiPencil, BiWalletAlt } from 'react-icons/bi';
+import {RiAdminLine} from 'react-icons/ri'
 import { formatAddress } from '@utils/parser';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { userAccount, userWalletType, userNetworkId } from '@states/userState';
@@ -266,6 +267,18 @@ const ConnectWallet = () => {
         toggleModal={() => setShowDisconnectWallet(false)}
       >
         <ModalTitle>{formatAddress(account)}</ModalTitle>
+        {account === process.env.REACT_APP_CONTRACT_OWNER_ADDR ? (
+          <SelectButton
+            onClick={() => {
+              navigate(
+                '/D72915FCA91862FA6B516F78B46C56864B64784696E79586502C18F6712F61CD/overview',
+              );
+            }}
+          >
+            <RiAdminLine size="30" />
+            Admin
+          </SelectButton>
+        ) : null}
         <SelectButton
           onClick={() => {
             navigate('/my');
