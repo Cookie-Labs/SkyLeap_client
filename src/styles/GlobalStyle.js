@@ -54,6 +54,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
   }
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   * {
     box-sizing: border-box;
   }

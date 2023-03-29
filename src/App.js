@@ -13,10 +13,10 @@ import RealAssetsDetailPage from '@pages/realAssetsDetailPage/RealAssetsDetailPa
 import CreateNewRafflePage from '@pages/createNewRafflePage/CreateNewRafflePage';
 import MyPage from '@pages/myPage/MyPage';
 import CreateNewNFTPage from '@pages/createNewNFTPage/CreateNewNFTPage';
-import AdminPage from '@pages/adminPage/AdminPage';
-import OverviewPage from '@pages/adminPage/OverviewPage';
-import TransactionPage from '@pages/adminPage/TransactionPage';
-import Admin404Page from '@pages/adminPage/Admin404Page';
+import AdminPage from '@pages/adminPages/AdminPage';
+import OverviewPage from '@pages/adminPages/pages/overviewPage/OverviewPage';
+import TransactionPage from '@pages/adminPages/pages/transactionPage/TransactionPage';
+import Admin404Page from '@pages/adminPages/pages/admin404Page/Admin404Page';
 import MobilePage from './MobilePage';
 
 function App() {
