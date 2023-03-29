@@ -1,0 +1,129 @@
+import React from 'react';
+import styled from 'styled-components';
+import * as colors from '@styles/colors';
+import { Link, useLocation } from 'react-router-dom';
+import { Drawer, useTheme, useMediaQuery } from '@mui/material';
+import { Scrollbar } from './scrollbar';
+import rafflixLogo from '@assets/logo/Rafflix_logo.svg';
+import SideNavItem from './SideNavItem';
+import { BiWater, BiTransferAlt } from 'react-icons/bi';
+import { SIDE_NAV_WIDTH } from './layoutConst';
+
+const items = [
+  {
+    title: 'Overview',
+    path: '/D72915FCA91862FA6B516F78B46C56864B64784696E79586502C18F6712F61CD/overview',
+    icon: <BiWater size="30" />,
+  },
+  {
+    title: 'Transaction',
+    path: '/D72915FCA91862FA6B516F78B46C56864B64784696E79586502C18F6712F61CD/transaction',
+    icon: <BiTransferAlt size="30" />,
+  },
+];
+
+const NavButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`;
+
+const NavButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  gap: 20px;
+`;
+
+const LogoImage = styled.img`
+  width: 200px;
+  margin-right: 24px;
+
+  &:hover {
+    width: 190px;
+    transition: 0.3s;
+  }
+`;
+
+const SideBar = ({ open, onNavClose }) => {
+  const theme = useTheme();
+  const lgUp = useMediaQuery(theme.breakpoints.up('lg'));
+  const { pathname } = useLocation();
+
+  const content = (
+    <Scrollbar
+      sx={{
+        height: '100%',
+        '& .simplebar-content': {
+          height: '100%',
+        },
+        '& .simplebar-scrollbar:before': {
+          background: `${colors.bgRed}`,
+        },
+      }}
+    >
+      <NavButtonsContainer>
+        <Link to={'/'}>
+          <LogoImage src={rafflixLogo} />
+        </Link>
+        <NavButtonsWrapper>
+          {items.map((item) => {
+            const active = item.path ? pathname === item.path : false;
+            return (
+              <SideNavItem
+                key={item.title}
+                active={active}
+                path={item.path}
+                title={item.title}
+                icon={item.icon}
+                disabled={item.disabled}
+              />
+            );
+          })}
+        </NavButtonsWrapper>
+      </NavButtonsContainer>
+    </Scrollbar>
+  );
+
+  if (lgUp) {
+    return (
+      <Drawer
+        anchor="left"
+        open
+        PaperProps={{
+          sx: {
+            backgroundColor: `${colors.bgSecondary}`,
+            color: `${colors.textPrimary}`,
+            width: SIDE_NAV_WIDTH,
+          },
+        }}
+        variant="permanent"
+      >
+        {content}
+      </Drawer>
+    );
+  }
+
+  return (
+    <Drawer
+      anchor="left"
+      onClose={onNavClose}
+      open={open}
+      PaperProps={{
+        sx: {
+          backgroundColor: `${colors.bgSecondary}`,
+          color: `${colors.textPrimary}`,
+          width: SIDE_NAV_WIDTH,
+        },
+      }}
+      sx={{ zIndex: (theme) => theme.zIndex.appBar + 100 }}
+      variant="temporary"
+    >
+      {content}
+    </Drawer>
+  );
+};
+
+export default SideBar;
