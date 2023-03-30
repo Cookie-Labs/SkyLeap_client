@@ -4,25 +4,37 @@ import * as colors from '@styles/colors';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Drawer, useTheme, useMediaQuery } from '@mui/material';
 import { Scrollbar } from './scrollbar';
-import NFToolZLogo from '@assets/logo/NFToolZ_logo.svg';
+import rafflixLogo from '@assets/logo/Rafflix_logo.svg';
 import SideNavItem from './SideNavItem';
-import { BiWater, BiTransferAlt } from 'react-icons/bi';
+import {
+  HiOutlineTicket,
+  HiOutlineShoppingBag,
+  HiOutlinePlusCircle,
+} from 'react-icons/hi';
 import { SIDE_NAV_WIDTH, TOP_NAV_HEIGHT } from './layoutConst';
 
 const items = [
   {
-    title: 'Overview',
-    path: '/D72915FCA91862FA6B516F78B46C56864B64784696E79586502C18F6712F61CD/overview',
-    icon: <BiWater size="30" />,
+    title: 'NFT RAFFLES',
+    path: '/rafflix/nftRaffles',
+    icon: <HiOutlineTicket size="30" />,
+    color: `${colors.primary80}`,
   },
   {
-    title: 'Transaction',
-    path: '/D72915FCA91862FA6B516F78B46C56864B64784696E79586502C18F6712F61CD/transaction',
-    icon: <BiTransferAlt size="30" />,
+    title: 'REAL ASSETS RAFFLES',
+    path: '/rafflix/realAssetsRaffles',
+    icon: <HiOutlineShoppingBag size="30" />,
+    color: `${colors.secondary80}`,
+  },
+  {
+    title: 'CREATE NEW RAFFLES',
+    path: '/rafflix/createRaffle',
+    icon: <HiOutlinePlusCircle size="30" />,
+    color: `${colors.tertiary80}`,
   },
 ];
 
-const NavButtonsContainer = styled.div`
+const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,8 +52,7 @@ const NavButtonsWrapper = styled.div`
 const LogoButtonWrapper = styled.button`
   cursor: pointer;
   width: 100%;
-  height: auto;
-  margin-top: 15px;
+  height: ${TOP_NAV_HEIGHT}px;
 `;
 
 const LogoImage = styled.img`
@@ -71,13 +82,13 @@ const SideBar = ({ open, onNavClose }) => {
         },
       }}
     >
-      <NavButtonsContainer>
+      <SideBarContainer>
         <LogoButtonWrapper
           onClick={() => {
-            navigate('/');
+            navigate('/rafflix/nftRaffles');
           }}
         >
-          <LogoImage src={NFToolZLogo} />
+          <LogoImage src={rafflixLogo} />
         </LogoButtonWrapper>
         <NavButtonsWrapper>
           {items.map((item) => {
@@ -86,6 +97,7 @@ const SideBar = ({ open, onNavClose }) => {
               <SideNavItem
                 key={item.title}
                 active={active}
+                activeColor={item.color}
                 path={item.path}
                 title={item.title}
                 icon={item.icon}
@@ -94,7 +106,7 @@ const SideBar = ({ open, onNavClose }) => {
             );
           })}
         </NavButtonsWrapper>
-      </NavButtonsContainer>
+      </SideBarContainer>
     </Scrollbar>
   );
 
@@ -105,7 +117,7 @@ const SideBar = ({ open, onNavClose }) => {
         open
         PaperProps={{
           sx: {
-            backgroundColor: `${colors.bgSecondary}`,
+            backgroundColor: `${colors.bgPrimary}`,
             color: `${colors.textPrimary}`,
             width: SIDE_NAV_WIDTH,
           },
@@ -124,7 +136,7 @@ const SideBar = ({ open, onNavClose }) => {
       open={open}
       PaperProps={{
         sx: {
-          backgroundColor: `${colors.bgSecondary}`,
+          backgroundColor: `${colors.bgPrimary}`,
           color: `${colors.textPrimary}`,
           width: SIDE_NAV_WIDTH,
         },

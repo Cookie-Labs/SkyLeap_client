@@ -11,14 +11,21 @@ const ButtonWrapper = styled.div`
     props.disabled
       ? `${colors.textBlack}`
       : props.active
-      ? `${colors.primary80}`
+      ? props.activeColor
       : `${colors.bgWhite}`};
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const SideNavItem = ({ active = false, path, disabled, icon, title }) => {
+const SideNavItem = ({
+  active = false,
+  activeColor,
+  path,
+  disabled,
+  icon,
+  title,
+}) => {
   const navigate = useNavigate();
 
   return (
@@ -46,11 +53,19 @@ const SideNavItem = ({ active = false, path, disabled, icon, title }) => {
       }}
     >
       {icon && (
-        <ButtonWrapper active={active} disabled={disabled}>
+        <ButtonWrapper
+          active={active}
+          disabled={disabled}
+          activeColor={activeColor}
+        >
           {icon}
         </ButtonWrapper>
       )}
-      <ButtonWrapper active={active} disabled={disabled}>
+      <ButtonWrapper
+        active={active}
+        disabled={disabled}
+        activeColor={activeColor}
+      >
         {title}
       </ButtonWrapper>
     </ButtonBase>

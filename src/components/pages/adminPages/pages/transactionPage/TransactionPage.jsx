@@ -14,19 +14,18 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
   gap: 10px;
 `;
 
 const ContentWrapper = styled.div`
   width: 100%;
   height: 300px;
+  margin-bottom: 20px;
   border-radius: 20px;
   border: 1px solid ${colors.bgWhite};
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: ${colors.bgSecondary};
   gap: 20px;
   padding: 20px;
   overflow-x: scroll;
