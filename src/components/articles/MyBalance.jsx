@@ -20,7 +20,7 @@ const BalanceWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid ${colors.bgWhite};
+  border: 2px solid ${colors.bgQuaternary};
   border-radius: 10px;
   width: 180px;
   height: 30px;

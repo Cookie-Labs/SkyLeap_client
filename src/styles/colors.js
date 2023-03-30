@@ -19,8 +19,9 @@ export const tertiary40 = '#91BE90';
 export const tertiary20 = '#bacfb9';
 
 export const bgPrimary = '#1A1A1A';
-export const bgSecondary = '#242426';
+export const bgSecondary = '#242424';
 export const bgTertiary = '#303030';
+export const bgQuaternary = '#3A3A3A';
 export const bgBlack = '#0F0F0F';
 export const bgWhite = '#BBBBBB';
 export const bgRed = '#f74b46';

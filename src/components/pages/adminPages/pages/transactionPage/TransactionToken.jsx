@@ -8,7 +8,7 @@ const TokenWrapper = styled.div`
     height: 250px;
     border: 1px solid ${colors.bgWhite};
     border-radius: 15px;
-    background-color: ${colors.bgTertiary};
+    background-color: ${colors.bgQuaternary};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,13 +45,13 @@ const TransactionButton = styled.button`
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    border: 1px solid ${colors.bgWhite};
+    border: 2px solid ${colors.bgQuaternary};
     background-color: ${colors.primary40};
     cursor: pointer;
 
     &:hover {
         background-color: ${colors.primary80};
-        transaction: 0.3s
+        transition: 0.3s
     }
 `;
 

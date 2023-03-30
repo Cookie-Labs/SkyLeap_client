@@ -74,7 +74,7 @@ const borderGradient = keyframes`
 `;
 
 const WalletButton = styled.button`
-  width: 100%;
+  width: 150px;
   min-height: 60px;
   padding: 5px;
   font-size: 15px;
@@ -181,7 +181,7 @@ const ConnectWallet = () => {
       localStorage.setItem('_user', accounts[0]);
       localStorage.setItem('_wallet', 'Kaikas');
 
-      // const signMessage = `Rafflix\n 'Your address: ${accounts[0]}'`;
+      // const signMessage = `NFToolZ\n 'Your address: ${accounts[0]}'`;
       // await caver.klay.sign(signMessage);
 
       if (chainId !== klaytnNetworkId) {
@@ -208,7 +208,7 @@ const ConnectWallet = () => {
       toast.success(`${formatAddress(accounts[0])}, welcome.`, {
         autoClose: 1500,
       });
-      setTimeout(() => window.location.reload(), 1500);
+      // setTimeout(() => window.location.reload(), 1500);
     } catch {
       toast.error(
         'Login failed. Please turn off your browser and turn it on again.',
@@ -270,6 +270,7 @@ const ConnectWallet = () => {
         {account === process.env.REACT_APP_CONTRACT_OWNER_ADDR ? (
           <SelectButton
             onClick={() => {
+              setShowDisconnectWallet(false);
               navigate(
                 '/D72915FCA91862FA6B516F78B46C56864B64784696E79586502C18F6712F61CD/overview',
               );
@@ -281,7 +282,8 @@ const ConnectWallet = () => {
         ) : null}
         <SelectButton
           onClick={() => {
-            navigate('/my');
+            setShowDisconnectWallet(false);
+            navigate('/rafflix/my');
           }}
         >
           <BiUser size="30" />
@@ -289,7 +291,8 @@ const ConnectWallet = () => {
         </SelectButton>
         <SelectButton
           onClick={() => {
-            navigate('/createNFT');
+            setShowDisconnectWallet(false);
+            navigate('/rafflix/createNFT');
           }}
         >
           <BiPencil size="30" />
