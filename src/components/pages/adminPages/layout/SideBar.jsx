@@ -40,7 +40,7 @@ const NavButtonsWrapper = styled.div`
 const LogoButtonWrapper = styled.button`
   cursor: pointer;
   width: 100%;
-  height: auto;
+  height: ${TOP_NAV_HEIGHT}px;
   margin-top: 15px;
 `;
 
