@@ -45,10 +45,10 @@ const LogoButtonWrapper = styled.button`
 `;
 
 const LogoImage = styled.img`
-  width: 200px;
+  height: ${TOP_NAV_HEIGHT}px;
 
   &:hover {
-    width: 190px;
+    height: calc(${TOP_NAV_HEIGHT}px - 5px);
     transition: 0.3s;
   }
 `;

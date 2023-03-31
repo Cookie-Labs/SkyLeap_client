@@ -6,7 +6,7 @@ import '@fontsource/do-hyeon';
 import '@fontsource/shrikhand'; // title TODO: refactoring 필요
 import '@fontsource/roboto-condensed'; // subtitle
 
-import RandingPage from '@pages/randingPages/RandingPage';
+import LandingPage from '@pages/landingPages/LandingPage';
 
 import RafflixPage from '@pages/rafflixPages/RafflixPage';
 import Page404 from '@pages/rafflixPages/pages/page404/Page404';
@@ -34,7 +34,7 @@ function App() {
       </MobileView>
       <BrowserView>
         <Routes>
-          <Route path="/" element={<RandingPage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/rafflix" element={<RafflixPage />}>
             <Route path="nftRaffles" element={<NFTRafflesPage />} />
             <Route path="raffleDetail" element={<RaffleDetailPage />} />

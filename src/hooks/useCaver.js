@@ -34,7 +34,7 @@ export default function useCaver() {
       });
     }
     
-    myBalance();
+    if (account !== null) myBalance();
   }, [account, caver.klay, caver.utils]);
 
   return { caver, setCaver, klayBalance, klayBalanceNum };

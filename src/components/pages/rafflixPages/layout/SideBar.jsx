@@ -7,6 +7,7 @@ import { Scrollbar } from './scrollbar';
 import rafflixLogo from '@assets/logo/Rafflix_logo.svg';
 import SideNavItem from './SideNavItem';
 import {
+  HiOutlineHome,
   HiOutlineTicket,
   HiOutlineShoppingBag,
   HiOutlinePlusCircle,
@@ -14,6 +15,12 @@ import {
 import { SIDE_NAV_WIDTH, TOP_NAV_HEIGHT } from './layoutConst';
 
 const items = [
+  {
+    title: 'NFToolZ HOME',
+    path: '/',
+    icon: <HiOutlineHome size="30" />,
+    color: `${colors.bgWhite}`,
+  },
   {
     title: 'NFT RAFFLES',
     path: '/rafflix/nftRaffles',
