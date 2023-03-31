@@ -1,8 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import styled, {keyframes} from 'styled-components';
 import * as colors from '@styles/colors';
 import { TOP_NAV_HEIGHT } from './layoutConst';
-import { useTheme, useMediaQuery } from '@mui/material';
 import nftoolzLogo from '@assets/logo/NFToolZ_logo.svg';
 import { BsFillLockFill, BsBagFill, BsTools } from 'react-icons/bs';
 import { RiAuctionFill, RiTicketFill } from 'react-icons/ri';
@@ -25,11 +24,21 @@ const TopBarWrapper = styled.div`
   padding: 0 20px;
 `;
 
-const ButtonsWrapper = styled.div`
+const LeftButtonsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 20px;
+`;
+
+const RightButtonsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  border: ${(props) => props.toolsOpen ? `1px solid ${colors.primary80}` : null};
+  border-radius: 20px;
+  padding: 9px;
 `;
 
 const LogoImage = styled.img`
@@ -37,18 +46,37 @@ const LogoImage = styled.img`
   height: 64px;
 `;
 
+const rotation = keyframes`
+    from{
+        border: 2px dashed #ffbf69;
+    }
+
+    to{
+        border: 2px solid #ffbf69;
+    }
+`;
+
 const NavButton = styled.button`
   cursor: pointer;
   width: 150px;
   height: 60px;
   border-radius: 10px;
-  border: 2px dashed #ffbf69;
+  /* border: 2px dashed #ffbf69; */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   font-size: 20px;
   color: ${colors.textPrimary};
   font-weight: 700;
+  transform-origin: 50% 50%;
+  animation: ${rotation} 2s linear infinite;
+
+  &:hover {
+    background-color: ${colors.bgQuaternary};
+    width: 145px;
+    height: 58px;
+    transition: 0.3s;
+  }
 `;
 
 const items = [
@@ -75,40 +103,40 @@ const items = [
 ];
 
 const TopBar = () => {
-  const theme = useTheme();
-  const lgUp = useMediaQuery(theme.breakpoints.up('lg'));
+  const [toolsOpen, setToolsOpen] = useState(false);
+
+  const handleToolsClick = () => {
+    setToolsOpen(!toolsOpen);
+  };
 
   return (
     <>
       <TopBarContainer>
         <TopBarWrapper>
-          <ButtonsWrapper>
+          <LeftButtonsWrapper>
             <LogoImage
               src={nftoolzLogo}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             />
-          </ButtonsWrapper>
-          <ButtonsWrapper>
-            {lgUp ? (
-              <>
-                {items.map((item) => {
-                  return (
-                    <TopNavItem
-                      key={item.title}
-                      icon={item.icon}
-                      path={item.path}
-                      title={item.title}
-                    />
-                  );
-                })}
-              </>
-            ) : (
-              <NavButton>
-                <BsTools />
-                TOOLS
-              </NavButton>
-            )}
-          </ButtonsWrapper>
+          </LeftButtonsWrapper>
+          <RightButtonsWrapper toolsOpen={toolsOpen}>
+            {toolsOpen &&
+              items.map((item) => {
+                return (
+                  <TopNavItem
+                    key={item.title}
+                    icon={item.icon}
+                    path={item.path}
+                    title={item.title}
+                    setToolsOpen={setToolsOpen}
+                  />
+                );
+              })}
+            <NavButton onClick={handleToolsClick}>
+              <BsTools />
+              TOOLS
+            </NavButton>
+          </RightButtonsWrapper>
         </TopBarWrapper>
       </TopBarContainer>
     </>
