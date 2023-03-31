@@ -48,12 +48,11 @@ const LogoImage = styled.img`
 
 const rotation = keyframes`
     from{
-        border: 2px solid #ffbf69;
+      box-shadow: none;
     }
 
     to{
-        border: 2px dashed #ffbf69;
-        box-shadow: -1px -1px 3px 10px #ffbf69;
+        box-shadow: -1px -1px 3px 5px #ffbf69;
     }
 `;
 
@@ -62,6 +61,7 @@ const NavButton = styled.button`
   width: 150px;
   height: 60px;
   border-radius: 10px;
+  border: 2px solid #ffbf69;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -69,7 +69,7 @@ const NavButton = styled.button`
   color: ${colors.textPrimary};
   font-weight: 700;
   transform-origin: 50% 50%;
-  animation: ${rotation} 2s linear infinite;
+  animation: ${rotation} 1.5s linear infinite;
 
   &:hover {
     background-color: ${colors.bgQuaternary};
