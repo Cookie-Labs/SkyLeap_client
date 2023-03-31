@@ -6,22 +6,27 @@ import { toast } from 'react-toastify';
 
 const ButtonWrapper = styled.button`
   cursor: pointer;
-  width: 150px;
-  height: 60px;
+  width: 9rem;
+  height: 3rem;
   border-radius: 10px;
-  border: 2px dashed #ffbf69;
+  background-color: ${colors.primary80};
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  font-size: 20px;
-  color: ${colors.textPrimary};
+  font-size: 1rem;
   font-weight: 700;
+  color: ${colors.textPrimary}; 
+
+  &:hover {
+    background-color: 
+  }
 `;
 
-const TopNavItem = ({ path, icon, title }) => {
+const TopNavItem = ({ path, icon, title, setToolsOpen }) => {
   const navigate = useNavigate();
 
   const handleClickButton = () => {
+    setToolsOpen(false);
     if (path === null) {
       toast.warn('Coming Soon...', {
         autoClose: 1500,
