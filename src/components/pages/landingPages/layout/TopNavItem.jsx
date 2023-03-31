@@ -18,7 +18,8 @@ const ButtonWrapper = styled.button`
   color: ${colors.textPrimary}; 
 
   &:hover {
-    background-color: 
+    background-color: ${colors.primary40};
+    transition: 0.3s
   }
 `;
 
