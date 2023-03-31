@@ -48,11 +48,12 @@ const LogoImage = styled.img`
 
 const rotation = keyframes`
     from{
-        border: 2px dashed #ffbf69;
+        border: 2px solid #ffbf69;
     }
 
     to{
-        border: 2px solid #ffbf69;
+        border: 2px dashed #ffbf69;
+        box-shadow: -1px -1px 3px 10px #ffbf69;
     }
 `;
 
@@ -61,7 +62,6 @@ const NavButton = styled.button`
   width: 150px;
   height: 60px;
   border-radius: 10px;
-  /* border: 2px dashed #ffbf69; */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
