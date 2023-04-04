@@ -158,6 +158,7 @@ const CreateNewNFTPage = () => {
     }
     setIsMint(true);
     setIsLoading(false);
+    setTimeout(() => window.location.reload(), 1500);
   };
 
   return (

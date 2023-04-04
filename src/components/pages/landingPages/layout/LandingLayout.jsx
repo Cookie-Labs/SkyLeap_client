@@ -8,7 +8,6 @@ const LayoutWrapper = styled.div`
   background-color: ${colors.bgSecondary};
   width: 100vw;
   min-height: calc(100vh - ${TOP_NAV_HEIGHT}px);
-  padding: 0 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
