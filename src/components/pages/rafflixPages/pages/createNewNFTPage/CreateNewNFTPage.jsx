@@ -127,7 +127,7 @@ const CreateNewNFTPage = () => {
   const [nftImage, setNftImage] = useState(null);
   const [nftName, setNftName] = useState('');
   const [nftDesc, setNftDesc] = useState('');
-  const [nftExternalLink, setnftExternalLink] = useState('');
+  const [nftExternalLink, setNftExternalLink] = useState('');
 
   const [isMint, setIsMint] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -198,7 +198,7 @@ const CreateNewNFTPage = () => {
         <BoxTitle>EXTERNAL LINK</BoxTitle>
         <TextBox
           onChange={(e) => {
-            setnftExternalLink(e.target.value);
+            setNftExternalLink(e.target.value);
           }}
         />
         <BottomWrapper>

@@ -36,6 +36,10 @@ const ContentWrapper = styled.div`
   }
 `;
 
+const ContentWrapperBigSize = styled(ContentWrapper)`
+  height: 700px;
+`
+
 const ContentTitle = styled.span`
   font-size: 30px;
   font-weight: 700;
@@ -98,10 +102,6 @@ const TransactionPage = () => {
           transactionFunc={announcementWinnerLayer1}
         />
       </ContentWrapper>
-      <ContentTitle>LAYER 2 SET</ContentTitle>
-      <ContentWrapper>
-        <SetLayer2 transactionFunc={setRaffleLayer2} />
-      </ContentWrapper>
       <ContentTitle>LAYER 2 DRAW</ContentTitle>
       <ContentWrapper>
         <TransactionList
@@ -116,6 +116,10 @@ const TransactionPage = () => {
           transactionFunc={announcementWinnerLayer2}
         />
       </ContentWrapper>
+      <ContentTitle>LAYER 2 SET</ContentTitle>
+      <ContentWrapperBigSize>
+        <SetLayer2 transactionFunc={setRaffleLayer2} />
+      </ContentWrapperBigSize>
     </ContentContainer>
   );
 };

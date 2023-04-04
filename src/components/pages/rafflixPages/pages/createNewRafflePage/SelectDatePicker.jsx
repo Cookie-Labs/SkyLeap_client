@@ -22,13 +22,13 @@ const DatePickerButton = styled.button`
   justify-content: flex-start;
 
   &:hover {
-    border: 1px solid ${colors.primary80};
+    border: 1px solid ${colors.tertiary80};
   }
 
   &:focus {
     outline: none;
-    border: 1px solid ${colors.primary80};
-    box-shadow: 0 0 10px ${colors.primary40};
+    border: 1px solid ${colors.tertiary80};
+    box-shadow: 0 0 10px ${colors.tertiary40};
   }
 `;
 
