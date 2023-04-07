@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { userState } from '@states/userState';
 import { useRecoilValue } from 'recoil';
 import useCaver from '@hooks/useCaver';
+import Caver from 'caver-js';
 import { RAFFLE_ABI } from '@hooks/useABI';
 import axios from 'axios';
 
@@ -113,7 +114,8 @@ export default function useRaffleLayer1() {
 
   useEffect(() => {
     async function getAllRaffleLayer1() {
-      const myContract = await new caver.klay.Contract(
+      const _caver = new Caver('https://public-en-cypress.klaytn.net/');
+      const myContract = await new _caver.klay.Contract(
         RAFFLE_ABI,
         RAFFLE_ADDR,
         {
