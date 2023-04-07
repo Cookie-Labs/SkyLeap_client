@@ -24,12 +24,14 @@ const items = [
   {
     title: 'NFT RAFFLES',
     path: '/rafflix/nftRaffles',
+    subPath: '/rafflix/raffleDetail',
     icon: <HiOutlineTicket size="30" />,
     color: `${colors.primary80}`,
   },
   {
     title: 'REAL ASSETS RAFFLES',
     path: '/rafflix/realAssetsRaffles',
+    subPath: '/rafflix/realAssetsDetail',
     icon: <HiOutlineShoppingBag size="30" />,
     color: `${colors.secondary80}`,
   },
@@ -99,7 +101,10 @@ const SideBar = ({ open, onNavClose }) => {
         </LogoButtonWrapper>
         <NavButtonsWrapper>
           {items.map((item) => {
-            const active = item.path ? pathname === item.path : false;
+            const active1 = item.path ? pathname === item.path : false;
+            const active2 = item.subPath ? pathname === item.subPath : false;
+            const active = active1 || active2;
+
             return (
               <SideNavItem
                 key={item.title}

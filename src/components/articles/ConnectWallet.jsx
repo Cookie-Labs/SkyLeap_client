@@ -110,6 +110,10 @@ const WalletButton = styled.button`
     animation: ${borderGradient} 3s ease alternate infinite;
     background-size: 300% 300%;
   }
+
+  &:hover {
+    background-color: ${colors.bgTertiary};
+  }
 `;
 
 const shine = keyframes`

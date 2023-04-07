@@ -87,9 +87,13 @@ const TokenTitle = styled.div`
 `;
 
 const WalletButtonWrapper = styled.div`
-  width: 70%;
-  height: 90px;
-  font-size: 30px;
+  width: auto;
+  height: auto;
+  border: 3px solid ${colors.bgQuaternary};
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const TokenWinnerWrapper = styled.div`
@@ -264,6 +268,9 @@ const RealAssetsDetailPage = () => {
     tokenInfo.tokenEndDate * 1000 - Date.now(),
   );
   const [adjustedEndDate, setAdjustedEndDate] = useState('');
+  const remainingTickets = Number(
+    tokenInfo.tokenTicketSupply - tokenInfo.tokenParticipatedList.length,
+  );
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -308,6 +315,8 @@ const RealAssetsDetailPage = () => {
   const handleBuyTickets = async () => {
     setIsJoin(false);
     setIsLoading(true);
+
+    console.log(tokenInfo.tokenId, numberOfTickets, tokenInfo.tokenTicketPrice);
     try {
       await joinRaffleLayer2(
         tokenInfo.tokenId,
@@ -324,14 +333,22 @@ const RealAssetsDetailPage = () => {
   const handleTicketNumberChange = (e) => {
     const newValue = e.target.value;
     if (/^\d*$/.test(newValue)) {
-      setNumberOfTickets(Number(newValue));
+      if (Number(newValue) >= remainingTickets) {
+        setNumberOfTickets(remainingTickets);
+      } else {
+        setNumberOfTickets(Number(newValue));
+      }
     } else {
       e.target.value = numberOfTickets;
     }
   };
 
   const handleTicketNumClick = (e, type) => {
-    if (numberOfTickets > 1) {
+    if (numberOfTickets >= remainingTickets) {
+      if (type === 'minus') {
+        setNumberOfTickets((prev) => Number(prev) - 1);
+      }
+    } else if (numberOfTickets > 1) {
       if (type === 'plus') {
         setNumberOfTickets((prev) => Number(prev) + 1);
       } else if (type === 'minus') {
@@ -458,11 +475,7 @@ const RealAssetsDetailPage = () => {
               <div>
                 <ContentTitle>Tickets Remaining</ContentTitle>
                 <ContentInner>
-                  {Number(
-                    tokenInfo.tokenTicketSupply -
-                      tokenInfo.tokenParticipatedList.length,
-                  )}{' '}
-                  / {tokenInfo.tokenTicketSupply}
+                  {remainingTickets}/ {tokenInfo.tokenTicketSupply}
                 </ContentInner>
               </div>
             </DetailsWrapper>

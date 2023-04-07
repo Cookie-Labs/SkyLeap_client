@@ -15,12 +15,12 @@ const CheckWallet = () => {
   const navigate = useNavigate();
   const klaytnNetwork = networks['cypress'].chainId;
 
-  useEffect(() => {
-    if (!kaikas) {
-      toast.error('Kaikas installation is required.', { autoClose: 60000 });
-      return;
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!kaikas) {
+  //     toast.error('Kaikas installation is required.', { autoClose: 60000 });
+  //     return;
+  //   }
+  // }, []);
 
   // Kaikas 잠금 동작 인식 + 계정 변경 인식
   useEffect(() => {
