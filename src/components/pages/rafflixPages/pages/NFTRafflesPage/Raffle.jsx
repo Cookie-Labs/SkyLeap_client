@@ -34,6 +34,9 @@ const TokenTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 10%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const TokenEndDate = styled.div`

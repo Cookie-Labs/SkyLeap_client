@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import RealAssets from './RealAssets';
 
@@ -19,18 +19,54 @@ const NoDataWrapper = styled.div`
   font-weight: 700;
 `;
 
-const RealAssetsList = ({ tokenList }) => {
-    if (tokenList.length !== 0) {
-        return (
-          <RafflesContainer>
-            {tokenList.map((token) => (
-              <RealAssets key={token.tokenId} token={token} />
-            ))}
-          </RafflesContainer>
-        );
-    } else {
-        return <NoDataWrapper>There are no raffles.</NoDataWrapper>
-    }
+const RealAssetsList = ({ tokenList, searchText, sortType }) => {
+  const [refinedTokenList, setRefinedTokenList] = useState(tokenList);
+
+  useEffect(() => {
+    const searchTokenList = tokenList.filter((token) => {
+      return token.tokenName
+        .replace(' ', '')
+        .toLocaleLowerCase()
+        .includes(searchText.toLocaleLowerCase());
+    });
+
+    //const filterTokenList
+
+    const sortTokenList = [...searchTokenList].sort((a, b) => {
+      switch (sortType) {
+        case 'Newly Registered':
+          return 0;
+        case 'Previously Registered':
+          return 0;
+        case 'Expiring Soon':
+          return new Date(a.tokenEndDate) - new Date(b.tokenEndDate);
+        case 'Price: Low to High':
+          return a.tokenTicketPrice - b.tokenTicketPrice;
+        case 'Price: High to Low':
+          return b.tokenTicketPrice - a.tokenTicketPrice;
+        case 'Floor: Low to High':
+          return 0;
+        case 'Floor: High to Low':
+          return 0;
+        default:
+          return 0;
+      }
+    });
+
+    setRefinedTokenList(sortTokenList);
+  }, [tokenList, searchText, sortType]);
+
+  if (tokenList.length !== 0) {
+    return (
+      <RafflesContainer>
+        {refinedTokenList.map((token) => (
+          <RealAssets key={token.tokenId} token={token} />
+        ))}
+      </RafflesContainer>
+    );
+  } else {
+    return <NoDataWrapper>There are no raffles.</NoDataWrapper>;
+  }
 };
 
 export default RealAssetsList;

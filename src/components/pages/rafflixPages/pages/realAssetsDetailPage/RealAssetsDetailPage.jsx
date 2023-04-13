@@ -399,11 +399,8 @@ const RealAssetsDetailPage = () => {
                 onClick={handleBuyTickets}
                 disabled={!numberOfTickets}
               >
-                Buy For{' '}
-                {String(
-                  (numberOfTickets * tokenInfo.tokenTicketPrice) / 10 ** 18,
-                )}
-                KLAY
+                Buy For {String(numberOfTickets * tokenInfo.tokenTicketPrice)}
+                RT
               </JoinRaffleButton>
             )}
           </>
@@ -415,7 +412,7 @@ const RealAssetsDetailPage = () => {
       </LeftWrapper>
       <RightWrapper>
         <TokenTitle>
-          {tokenInfo.tokenName} #{tokenInfo.tokenId}
+          {tokenInfo.tokenName}
         </TokenTitle>
         <OwnerWrapper>
           <OwnerTitle>Owner</OwnerTitle>
@@ -459,9 +456,7 @@ const RealAssetsDetailPage = () => {
               </div>
               <div>
                 <ContentTitle>Ticket Price</ContentTitle>
-                <ContentInner>
-                  {String(tokenInfo.tokenTicketPrice / 10 ** 18)} KLAY
-                </ContentInner>
+                <ContentInner>{tokenInfo.tokenTicketPrice} RT</ContentInner>
               </div>
               <div>
                 <ContentTitle>Raffle End Date</ContentTitle>

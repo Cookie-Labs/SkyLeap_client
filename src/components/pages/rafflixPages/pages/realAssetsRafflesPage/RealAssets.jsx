@@ -34,6 +34,9 @@ const TokenTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 10%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const TokenEndDate = styled.div`
@@ -134,7 +137,7 @@ const RealAssets = ({ token }) => {
       <TokenWrapper>
         <TokenImage src={tokenImage} />
         <TokenTitle>
-          {tokenName} #{tokenId}
+          {tokenName}
         </TokenTitle>
         <TokenEndDate>
           <BiTimer color="#b3139b" size="25px" />
@@ -150,7 +153,7 @@ const RealAssets = ({ token }) => {
             {Number(tokenTicketSupply) - tokenParticipatedList.length} /{' '}
             {tokenTicketSupply}
           </span>
-          <span>{tokenTicketPrice / 10 ** 18} KLAY</span>
+          <span>{tokenTicketPrice} RT</span>
         </TicketInfo>
         <ViewRaffleButton
           onClick={() => {
