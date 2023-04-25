@@ -103,8 +103,8 @@ const SearchTerm = styled.input`
   &:focus {
     width: 150%;
     outline: none;
-    border: 1px solid ${colors.primary80};
-    box-shadow: 0 0 10px ${colors.primary40};
+    border: 1px solid ${colors.secondary80};
+    box-shadow: 0 0 10px ${colors.secondary40};
   }
 `;
 
@@ -158,11 +158,11 @@ const MenuHeadButton = styled.button`
     props.isOpen ? null : `2px solid ${colors.bgQuaternary}`};
   border-radius: ${(props) => (props.isOpen ? '10px 10px 0 0' : '10px')};
   background-color: ${(props) =>
-    props.isOpen ? colors.primary80 : colors.bgTertiary};
+    props.isOpen ? colors.secondary80 : colors.bgTertiary};
   color: ${colors.textPrimary};
 
   &:hover {
-    background-color: ${colors.primary40};
+    background-color: ${colors.secondary40};
     transition: 0.3s;
   }
 `;
@@ -200,7 +200,7 @@ const MenuItemButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: ${colors.primary80};
+    color: ${colors.secondary80};
     transition: 0.3s;
   }
 `;
@@ -212,7 +212,7 @@ const MenuApplyButton = styled.button`
   width: 80%;
   height: 1.5rem;
   font-size: 0.8rem;
-  background-color: ${colors.primary80};
+  background-color: ${colors.secondary80};
   color: ${colors.bgQuaternary};
   border-radius: 10px;
   cursor: pointer;
