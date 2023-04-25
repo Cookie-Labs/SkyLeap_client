@@ -2,12 +2,17 @@ import React from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import GlobalStyle from '@styles/GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
+
+// Font
 import '@fontsource/do-hyeon';
 import '@fontsource/shrikhand'; // title TODO: refactoring 필요
 import '@fontsource/roboto-condensed'; // subtitle
 
+// landing pages
 import LandingPage from '@pages/landingPages/LandingPage';
+import Landing404Page from '@pages/landingPages/pages/landing404Page/Landing404Page';
 
+// raffle pages
 import RafflixPage from '@pages/rafflixPages/RafflixPage';
 import Page404 from '@pages/rafflixPages/pages/page404/Page404';
 import NFTRafflesPage from '@pages/rafflixPages/pages/NFTRafflesPage/NFTRafflesPage';
@@ -18,11 +23,13 @@ import CreateNewRafflePage from '@pages/rafflixPages/pages/createNewRafflePage/C
 import MyPage from '@pages/rafflixPages/pages/myPage/MyPage';
 import CreateNewNFTPage from '@pages/rafflixPages/pages/createNewNFTPage/CreateNewNFTPage';
 
+// admin pages
 import AdminPage from '@pages/adminPages/AdminPage';
 import OverviewPage from '@pages/adminPages/pages/overviewPage/OverviewPage';
 import TransactionPage from '@pages/adminPages/pages/transactionPage/TransactionPage';
 import Admin404Page from '@pages/adminPages/pages/admin404Page/Admin404Page';
 
+// mobile view
 import MobilePage from './MobilePage';
 
 function App() {
@@ -34,11 +41,16 @@ function App() {
       </MobileView>
       <BrowserView>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />}>
+            <Route path="*" element={<Landing404Page />} />
+          </Route>
           <Route path="/rafflix" element={<RafflixPage />}>
             <Route path="nftRaffles" element={<NFTRafflesPage />} />
             <Route path="raffleDetail" element={<RaffleDetailPage />} />
-            <Route path="realAssetsRaffles" element={<RealAssetsRafflesPage />} />
+            <Route
+              path="realAssetsRaffles"
+              element={<RealAssetsRafflesPage />}
+            />
             <Route path="realAssetsDetail" element={<RealAssetsDetailPage />} />
             <Route path="createRaffle" element={<CreateNewRafflePage />} />
             <Route path="my" element={<MyPage />} />

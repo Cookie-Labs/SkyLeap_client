@@ -1,3 +1,1 @@
-# TEAM Hunter's Pot project
-
-## NFToolZ
+# TEAM Hunter's Pot project (SkyLeap Client)
