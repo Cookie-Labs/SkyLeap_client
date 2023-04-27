@@ -6,7 +6,7 @@ import { FT_ABI } from '@hooks/useABI';
 
 const FT_ADDR = process.env.REACT_APP_CYPRESS_FT_ADDR;
 
-export default function useRT() {
+export default function useFT() {
   const { caver } = useCaver();
   const { account, walletType } = useRecoilValue(userState);
   const [myFTBalance, setMyFTBalance] = useState(0);

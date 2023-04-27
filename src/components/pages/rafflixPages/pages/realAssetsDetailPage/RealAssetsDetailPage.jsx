@@ -400,7 +400,7 @@ const RealAssetsDetailPage = () => {
                 disabled={!numberOfTickets}
               >
                 Buy For {String(numberOfTickets * tokenInfo.tokenTicketPrice)}
-                RT
+                SL
               </JoinRaffleButton>
             )}
           </>
@@ -456,7 +456,7 @@ const RealAssetsDetailPage = () => {
               </div>
               <div>
                 <ContentTitle>Ticket Price</ContentTitle>
-                <ContentInner>{tokenInfo.tokenTicketPrice} RT</ContentInner>
+                <ContentInner>{tokenInfo.tokenTicketPrice} SL</ContentInner>
               </div>
               <div>
                 <ContentTitle>Raffle End Date</ContentTitle>

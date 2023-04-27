@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import * as colors from '@styles/colors';
 import { TOP_NAV_HEIGHT } from './layoutConst';
-import nftoolzLogo from '@assets/logo/NFToolZ_logo.svg';
+import SkyLeapLogo from '@assets/logo/SkyLeap_logo.svg';
 import { BsFillLockFill, BsBagFill, BsTools } from 'react-icons/bs';
 import { RiAuctionFill, RiTicketFill } from 'react-icons/ri';
 import TopNavItem from './TopNavItem';
@@ -36,7 +36,8 @@ const RightButtonsWrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 20px;
-  border: ${(props) => props.toolsOpen ? `1px solid ${colors.primary80}` : null};
+  border: ${(props) =>
+    props.toolsOpen ? `1px solid ${colors.primary80}` : null};
   border-radius: 20px;
   padding: 9px;
 `;
@@ -44,6 +45,12 @@ const RightButtonsWrapper = styled.div`
 const LogoImage = styled.img`
   width: auto;
   height: 64px;
+`;
+
+const LogoName = styled.span`
+  font-size: 2.2rem;
+  font-weight: 900;
+  font-family: 'Shrikhand', cursive;
 `;
 
 const rotation = keyframes`
@@ -115,9 +122,10 @@ const TopBar = () => {
         <TopBarWrapper>
           <LeftButtonsWrapper>
             <LogoImage
-              src={nftoolzLogo}
+              src={SkyLeapLogo}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             />
+            <LogoName>SkyLeap</LogoName>
           </LeftButtonsWrapper>
           <RightButtonsWrapper toolsOpen={toolsOpen}>
             {toolsOpen &&

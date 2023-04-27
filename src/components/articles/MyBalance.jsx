@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
 import nftIcon from '@assets/image/NFT_Icon.png';
-import rtIcon from '@assets/image/RT_Icon.png';
+import slIcon from '@assets/image/SL_Icon.png';
 import klaytnIcon from '@assets/image/Klaytn_Icon.png';
 import useCaver from '@hooks/useCaver';
 import useNFT from '@hooks/useNFT';
-import useRT from '@hooks/useRT';
+import useFT from '@hooks/useFT';
 
 const BalanceContainer = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ const BalanceUnit = styled.span`
 
 const MyBalance = () => {
   const { myNFTBalance } = useNFT();
-  const { myFTBalance } = useRT();
+  const { myFTBalance } = useFT();
   const { klayBalanceNum } = useCaver();
 
   return (
@@ -62,10 +62,10 @@ const MyBalance = () => {
         </BalanceTextWrapper>
       </BalanceWrapper>
       <BalanceWrapper>
-        <BalanceImage src={rtIcon} />
+        <BalanceImage src={slIcon} />
         <BalanceTextWrapper>
           <span>{myFTBalance}</span>
-          <BalanceUnit>RT</BalanceUnit>
+          <BalanceUnit>SL</BalanceUnit>
         </BalanceTextWrapper>
       </BalanceWrapper>
       <BalanceWrapper>

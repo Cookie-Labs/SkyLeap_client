@@ -4,7 +4,7 @@ import * as colors from '@styles/colors';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Drawer, useTheme, useMediaQuery } from '@mui/material';
 import { Scrollbar } from './scrollbar';
-import NFToolZLogo from '@assets/logo/NFToolZ_logo.svg';
+import SkyLeapLogo from '@assets/logo/SkyLeap_logo.svg';
 import SideNavItem from './SideNavItem';
 import { BiWater, BiTransferAlt } from 'react-icons/bi';
 import { SIDE_NAV_WIDTH, TOP_NAV_HEIGHT } from './layoutConst';
@@ -77,7 +77,7 @@ const SideBar = ({ open, onNavClose }) => {
             navigate('/');
           }}
         >
-          <LogoImage src={NFToolZLogo} />
+          <LogoImage src={SkyLeapLogo} />
         </LogoButtonWrapper>
         <NavButtonsWrapper>
           {items.map((item) => {
