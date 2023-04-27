@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as colors from '@styles/colors';
+// import * as colors from '@styles/colors';
 import heroImg from '@assets/image/hero_Image.jpg';
 
 const Container = styled.div`
@@ -21,35 +21,8 @@ const Container = styled.div`
   grid-template-rows: repeat(5, 1fr);
 `;
 
-const TitleWrapper = styled.div`
-  grid-row: 2;
-  font-size: 150px;
-  font-weight: 900;
-  color: ${colors.primary80};
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  -webkit-text-stroke: 2px black;
-`;
-
-const SubTitleWrapper = styled.div`
-  grid-row: 3;
-  font-size: 55px;
-  font-weight: 900;
-  color: ${colors.textPrimary};
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  -webkit-text-stroke: 2px black;
-`;
-
 const HeroArea = () => {
-  return (
-    <Container>
-      <TitleWrapper>NFToolZ</TitleWrapper>
-      <SubTitleWrapper>Provides SaaS tools for NFT teams.</SubTitleWrapper>
-    </Container>
-  );
+  return <Container></Container>;
 };
 
 export default HeroArea;

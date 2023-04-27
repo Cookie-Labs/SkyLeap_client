@@ -153,7 +153,7 @@ const RealAssets = ({ token }) => {
             {Number(tokenTicketSupply) - tokenParticipatedList.length} /{' '}
             {tokenTicketSupply}
           </span>
-          <span>{tokenTicketPrice} RT</span>
+          <span>{tokenTicketPrice} SL</span>
         </TicketInfo>
         <ViewRaffleButton
           onClick={() => {

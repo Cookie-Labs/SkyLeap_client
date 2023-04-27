@@ -16,7 +16,7 @@ import { SIDE_NAV_WIDTH, TOP_NAV_HEIGHT } from './layoutConst';
 
 const items = [
   {
-    title: 'NFToolZ HOME',
+    title: 'SkyLeap HOME',
     path: '/',
     icon: <HiOutlineHome size="30" />,
     color: `${colors.bgWhite}`,

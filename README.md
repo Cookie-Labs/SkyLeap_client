@@ -1,1 +1,1 @@
-# TEAM Hunter's Pot project (SkyLeap Client)
+# TEAM Cookie Labs project (SkyLeap Client)

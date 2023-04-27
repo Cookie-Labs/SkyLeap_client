@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as colors from '@styles/colors';
-import NFToolZLogo from '@assets/logo/NFToolZ_logo.svg';
+import SkyLeapLogo from '@assets/logo/SkyLeap_logo.svg';
 import { SIDE_NAV_WIDTH, FOOTER_H } from './layoutConst';
 import { BsTwitter, BsTelegram, BsDiscord } from 'react-icons/bs';
 import { useTheme, useMediaQuery } from '@mui/material';
@@ -87,7 +87,7 @@ const Footer = () => {
               navigate('/');
             }}
           >
-            <LogoImage src={NFToolZLogo} />
+            <LogoImage src={SkyLeapLogo} />
           </EmojiButton>
           <EmojiWrapper>
             <EmojiButton
@@ -114,10 +114,10 @@ const Footer = () => {
           </EmojiWrapper>
         </TopWrapper>
         <TextWrapper>
-          <FooterText>Hunter's Pot</FooterText>
+          <FooterText>Cookie Labs</FooterText>
         </TextWrapper>
         <TextWrapper>
-          <FooterText>&copy; NFToolZ. 2023. All rights reserved</FooterText>
+          <FooterText>&copy; SkyLeap. 2023. All rights reserved</FooterText>
         </TextWrapper>
         <FooterLinks>
           <FooterText>이용약관</FooterText>

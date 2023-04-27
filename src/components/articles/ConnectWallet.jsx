@@ -185,7 +185,7 @@ const ConnectWallet = () => {
       localStorage.setItem('_user', accounts[0]);
       localStorage.setItem('_wallet', 'Kaikas');
 
-      // const signMessage = `NFToolZ\n 'Your address: ${accounts[0]}'`;
+      // const signMessage = `SkyLeap\n 'Your address: ${accounts[0]}'`;
       // await caver.klay.sign(signMessage);
 
       if (chainId !== klaytnNetworkId) {
